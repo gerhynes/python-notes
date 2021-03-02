@@ -46,3 +46,97 @@ Integer division will return a floored `int`:
 #### Comments
 
 Comments in Python files start with a #, `# more of a comment than a question`.
+
+### Variables and Data Types
+
+Variables are named symbols that hold a value.
+
+Variables must be assigned before they can be used.
+
+Assigning a variable: `x = 100`
+
+Variables can be reassigned at any time.
+
+You can assign multiple variables at the same time.
+
+```python
+all, at, once = 5, 10, 15
+```
+
+#### Naming Restrictions
+
+- Variables must start with a letter or underscore
+- The rest of the name must consist or letters, numbers or underscores
+- Names are case sensitive
+
+### Naming Conventions
+
+- Most variables should be snake_case
+- Most variables should be lowercase
+- CAPITAL_SNAKE_CASE ususally refers to constants, for example PI
+- UpperCamelCase usaully refers to a class
+- Variables that start and end with two underscores ("dunder") are supposed to be private and left alone: `__no_touchy__`
+
+### Data Types
+
+| Data Type | Description                                              |
+| --------- | -------------------------------------------------------- |
+| bool      | True or False values                                     |
+| int       | an integer (1,2,3)                                       |
+| str       | a sequence of unicode characters                         |
+| list      | an ordered sequence of values [1,2,3]                    |
+| dict      | a collection of key value pairs {"first_name": "Gerard"} |
+
+### Dynamic Typing
+
+Unlike statically-typed languages, Python lets you reassign variables to different types.
+
+```python
+example = "a Bernese Mountain Dog"
+example = 7
+```
+
+### None
+
+`None` is Python's version of `null`, respresenting nothingness.
+
+### Strings
+
+String literals can be declared with either single or double quotes. Be consistent.
+
+In Python, there are escape sequences, all starting with a backslash, which are interpreted according to specific rules.
+
+| Escape Sequence | Meaning     |
+| --------------- | ----------- |
+| \n              | new line    |
+| \\              | backslash   |
+| \"              | doublequote |
+| \'              | singlequote |
+
+#### Formatting Strings
+
+You can concatenate strings with the "+" operator. If you try to concatenate a number and string, you'll get a TypeError.
+
+You can update a string using the "+=" operator.
+
+```python
+str_one = "ice"
+str_one += " cream"
+str_one # "ice cream"
+```
+
+Python lets you interpolate variables into strings. Since Python 3.6 you can use F-Strings:
+
+```python
+x = 10
+formatted_str = f"I've told you {x} times already!"
+```
+
+Before Python 3.6, the format method was common:
+
+```python
+x = 10
+formatted_str = "I've told you {} times already!".format(x)
+```
+
+You can access individual string characters using square brackets and the characters index: `"yes"[0] # 'y'`
