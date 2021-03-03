@@ -154,3 +154,42 @@ integer = int(decimal) # 3
 my_list = [1, 2, 3]
 my_list_as_string = str(my_list) # "[1, 2, 3]"
 ```
+
+### Booleans and Conditional Logic
+
+Python has a built in function, `input`, to prompt the user and store the result in a variable.
+
+```python
+name = input()
+if name == "Arya Stark":
+    print("Stabby stabby")
+elif name == "John Snow":
+    print("*Indecision*")
+else:
+    print("Carry on")
+```
+
+In Python, all conditional checks resolve to True or False.
+
+Besides False conditional checks, other things that are naturally falsy include: empty objects, empty strings, None, and zero.
+
+#### Comparison Operators
+
+| Operator | What it does                                  |
+| -------- | --------------------------------------------- |
+| ==       | Truthy if a has the same value as b           |
+| !=       | Truthy if a does not have the same value as b |
+| >        | Truthy if a is greater than b                 |
+| <        | Truthy if a is less than b                    |
+| >=       | Truthy if a is greater than or equal to b     |
+| <=       | Truthy if a is less than or equal to b        |
+
+#### Logical Operators
+
+| Operator | What it does                        |
+| -------- | ----------------------------------- |
+| and      | Truthy if both a and b are true     |
+| or       | Truthy if either a or b are true    |
+| not      | Truthy if the opposite of a is true |
+
+Logical not only works with one piece of logic.
