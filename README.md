@@ -140,3 +140,17 @@ formatted_str = "I've told you {} times already!".format(x)
 ```
 
 You can access individual string characters using square brackets and the characters index: `"yes"[0] # 'y'`
+
+### Converting Data Types
+
+In string interpolation, data types are implicitly coverted into string form.
+
+You can explicitly convert variables by using the name of the built-in type as a function.
+
+```python
+decimal = 3.14159
+integer = int(decimal) # 3
+
+my_list = [1, 2, 3]
+my_list_as_string = str(my_list) # "[1, 2, 3]"
+```
