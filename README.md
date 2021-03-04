@@ -192,4 +192,35 @@ Besides False conditional checks, other things that are naturally falsy include:
 | or       | Truthy if either a or b are true    |
 | not      | Truthy if the opposite of a is true |
 
-Logical not only works with one piece of logic.
+#### is vs ==
+
+In Python `==` and `is` are similar but not the same.
+
+```python
+a = [1,2,3]
+b = [1,2,3]
+a == b # True
+a is b # False
+c = b
+b is c # True
+```
+
+`==` checks if the variables' values are the same. `is` checks if the variables are stored in the same place in memory.
+
+#### Nested if statement
+
+In Python, nested if statements are constructed through indentation:
+
+```python
+age = input("How old are you?: ")
+if age:
+    age = int(age)
+    if age >= 21:
+        print("You are good to enter and can drink")
+    elif age >= 18:
+        print("You can enter but need a wristband")
+    else:
+        print("You can't come in little one! :(")
+else:
+    print("Please enter an age")
+```
