@@ -224,3 +224,34 @@ if age:
 else:
     print("Please enter an age")
 ```
+
+### Loops
+
+Loops let you iterate over a collection of data and perform an action on each item.
+
+`for` loops are written like this:
+
+```python
+for item in iterable_object:
+    # do something with item
+```
+
+Here, `item` is a variable representing the current position of the iterator within the iterable. It will run through every item in the collection and then go away.
+
+#### ranges
+
+`ranges` are a way to generate a sequence of numbers, commonly used in for loops.
+
+```python
+times = input("How many times do I have to tell you? ")
+times = int(times)
+for times in range(times):
+    print("CLEAN UP YOUR ROOM!")
+```
+
+The third paramter, step, tells your code how many numbers to skip.
+
+- `range(7)` gives you the integers from 0 to 6
+- `range(1,8)` gives you the integers from 1 to 7
+- `range(1,10,2)` gives you odd integers from 1 to 10
+- `range(7, 0, -1)` gives you the integers from 7 to 1
