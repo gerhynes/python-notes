@@ -2,7 +2,7 @@
 
 Python is one of the most popular and flexible programming langauges, used for everything from basic scripting to machine learning.
 
-### Numbers
+## Numbers
 
 Python stores integers and floating point numbers differently, as an `int` or `float`.
 
@@ -47,7 +47,7 @@ Integer division will return a floored `int`:
 
 Comments in Python files start with a #, `# more of a comment than a question`.
 
-### Variables and Data Types
+## Variables and Data Types
 
 Variables are named symbols that hold a value.
 
@@ -100,7 +100,7 @@ example = 7
 
 `None` is Python's version of `null`, respresenting nothingness.
 
-### Strings
+## Strings
 
 String literals can be declared with either single or double quotes. Be consistent.
 
@@ -155,7 +155,7 @@ my_list = [1, 2, 3]
 my_list_as_string = str(my_list) # "[1, 2, 3]"
 ```
 
-### Booleans and Conditional Logic
+## Booleans and Conditional Logic
 
 Python has a built in function, `input`, to prompt the user and store the result in a variable.
 
@@ -225,7 +225,7 @@ else:
     print("Please enter an age")
 ```
 
-### Loops
+## Loops
 
 Loops let you iterate over a collection of data and perform an action on each item.
 
@@ -272,3 +272,44 @@ while user_response != "please":
 ```
 
 The `break` keyword lets you immediately exit out of a loop.
+
+## Lists
+
+A list is a collection of values in an ordered sequence. (It's an array)
+
+The `len` function gives you the length of a list.
+
+```python
+tasks = ["Install Python", "Learn about lists", "Take a break"]
+len(tasks) # 3
+```
+
+You can turn a range into a list using `list`.
+
+```python
+tasks = list(range(1,4)) # [1,2,3]
+```
+
+Like ranges, lists are zero-indexed. You can use a negative number to index backwards (-1 will give you the list item).
+
+### Iterating over lists
+
+The syntax for iterating over a list with a for loop is very simple.
+
+```python
+colors = ["purple", "teal", "magenta"]
+
+for color in colors:
+    print(color)
+```
+
+With a while loop, it's:
+
+```python
+numbers = [1,2,3,4]
+
+i = 0
+while i < len(numbers):
+    print(numbers[i])
+    i += 1
+```
