@@ -229,6 +229,8 @@ else:
 
 Loops let you iterate over a collection of data and perform an action on each item.
 
+#### for loops
+
 `for` loops are written like this:
 
 ```python
@@ -255,3 +257,18 @@ The third paramter, step, tells your code how many numbers to skip.
 - `range(1,8)` gives you the integers from 1 to 7
 - `range(1,10,2)` gives you odd integers from 1 to 10
 - `range(7, 0, -1)` gives you the integers from 7 to 1
+
+#### while loops
+
+While loops will continue to execute while a condition is truthy.
+
+```python
+while im_tired:
+    # seek caffeine
+
+user_response = None
+while user_response != "please":
+    user_response = input("Ah ah ah, you didn't say the magic word: ")
+```
+
+The `break` keyword lets you immediately exit out of a loop.
