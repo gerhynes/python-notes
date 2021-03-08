@@ -401,4 +401,42 @@ words = ["Python", "is", "fun"]
 " ".join(words) # "Python is fun"
 ```
 
-### Slicing
+### Slices
+
+Slices copy part or all of a list and makes a new list.
+
+```python
+some_list[start:end:step]
+```
+
+If you enter a negative number, it will start the slice that many indices from the end.
+
+The end parameter uses exclusive counting. Negative numbers tell you how many items to exclude from the end.
+
+The step gives you the interval to skip. When the step is a negative number, reverse the order.
+
+```python
+first_list[1,2,3,4]
+first_list[1:] # [2,3,4]
+first_list[3:] # [4]
+first_list[-1:] # [4]
+first_list[:2] # [1,2]
+first_list[1:3] # [2,3]
+first_list[1:-1] # [2,3]
+first_list[::2] # [1,3]
+first_list[1::-1] # [2,1]
+```
+
+Slices can reverse a list or string.
+
+```python
+string = "This is fun!"
+string[::-1]
+```
+
+Slices let you modify specific portions of a list.
+
+```python
+nums = [1,2,3,4,5]
+nums[1:3] = ["a","b","c"] # [1,"a","b","c",4,5]
+```
