@@ -360,3 +360,45 @@ nums = [1,2,3,4,4,4,5]
 nums.remove(2) # [1,3,4]
 nums.remove(4) # [1,3,4,4,5]
 ```
+
+`index` returns the index of a specified item in a list. You can specify a start and end point.
+
+```python
+nums = [5,6,7,8]
+nums.index(6) # 1
+
+nums2 = [5,5,6,7,5,8,8,9,10]
+nums2.index(5,1) # 1
+nums2.index(8,6,8) # 6
+```
+
+`count` returns the number of times a specified value occurs in a list
+
+```python
+nums = [1,2,3,4,3,2,5,6,7,8,9,10,2]
+nums.count(2) # 3
+nums.count(3) # 2
+```
+
+`reverse` will reverse the elements of a list (in-place)
+
+```python
+nums = [1,2,3,4]
+nums.reverse() # [4,3,2,1]
+```
+
+`sort` sorts the items of a list (in-place)
+
+```python
+nums = [4,1,2,5,3]
+nums.sort() # [1,2,3,4,5]
+```
+
+`join` (technically a string method) takes an iterable as an argument, concatenates a copy of the base string between each item of the iterable, and returns a new string.
+
+```python
+words = ["Python", "is", "fun"]
+" ".join(words) # "Python is fun"
+```
+
+### Slicing
