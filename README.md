@@ -313,3 +313,50 @@ while i < len(numbers):
     print(numbers[i])
     i += 1
 ```
+
+### List methods
+
+`append` adds one item to the end of a list.
+
+```python
+nums = [1,2,3]
+nums.append(4) # [1,2,3,4]
+```
+
+`extend` adds all of the values you pass it to the end of a list
+
+```python
+nums = [1,2,3,4]
+nums.append([5,6,7]) # [1,2,3,4,5,6,7]
+```
+
+`insert` inserts an item at a given index in a list
+
+```python
+todos = ["clean house", "exercise", "call family"]
+todos.insert(2, "take out bins")
+# ["clean house", "exercise", "take out bins", "call family"]
+```
+
+`clear` removes all items from a list
+
+```python
+nums = [1,2,3]
+nums.clear() # []
+```
+
+`pop` removes the item at a given index and returns it. If you don't specify an index, `pop` removes and returns the last item in the list.
+
+```python
+nums = [1,2,3,4]
+nums.pop() # 4
+nums.pop(1) # 2
+```
+
+`remove` removes the first item that matches a specified value. It will throw a ValueError if the item is not found.
+
+```python
+nums = [1,2,3,4,4,4,5]
+nums.remove(2) # [1,3,4]
+nums.remove(4) # [1,3,4,4,5]
+```
