@@ -499,3 +499,35 @@ numbers = [1, 2, 3, 4, 5, 6]
 [num*2 if num % 2 == 0 else num/2 for num in numbers]
 # [0.5, 4, 1.5, 8, 2.5, 12]
 ```
+
+### Nested Lists (multidimensional lists)
+
+Lists can contain any other kind of element, even other lists.
+
+Nested lists are used in a variety of scenarios:
+
+- complex data structures - matrices
+- rows and columns for visualizations, tabulations and grouping data
+- mazes, game boards
+
+```python
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+nested_list[0][1] # 2
+nested_list[1][-1] # 6
+```
+
+You can use nested loops to output values from nested lists.
+
+```python
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+for el in nested_list:
+    for val in el:
+        print(val)
+```
+
+You can also use list comprehension.
+
+```python
+nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+[print(val) for val in el] for el in nested_list]
+```
