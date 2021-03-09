@@ -197,8 +197,8 @@ Besides False conditional checks, other things that are naturally falsy include:
 In Python `==` and `is` are similar but not the same.
 
 ```python
-a = [1,2,3]
-b = [1,2,3]
+a = [1, 2, 3]
+b = [1, 2, 3]
 a == b # True
 a is b # False
 c = b
@@ -287,7 +287,7 @@ len(tasks) # 3
 You can turn a range into a list using `list`.
 
 ```python
-tasks = list(range(1,4)) # [1,2,3]
+tasks = list(range(1,4)) # [1, 2, 3]
 ```
 
 Like ranges, lists are zero-indexed. You can use a negative number to index backwards (-1 will give you the list item).
@@ -306,7 +306,7 @@ for color in colors:
 With a while loop, it's:
 
 ```python
-numbers = [1,2,3,4]
+numbers = [1, 2, 3, 4]
 
 i = 0
 while i < len(numbers):
@@ -319,18 +319,18 @@ while i < len(numbers):
 `append` adds one item to the end of a list.
 
 ```python
-nums = [1,2,3]
-nums.append(4) # [1,2,3,4]
+nums = [1, 2, 3]
+nums.append(4) # [1, 2, 3, 4]
 ```
 
-`extend` adds all of the values you pass it to the end of a list
+`extend` adds all of the values you pass it to the end of a list.
 
 ```python
-nums = [1,2,3,4]
-nums.append([5,6,7]) # [1,2,3,4,5,6,7]
+nums = [1, 2, 3, 4]
+nums.append([5, 6, 7]) # [1, 2, 3, 4, 5, 6, 7]
 ```
 
-`insert` inserts an item at a given index in a list
+`insert` inserts an item at a given index in a list.
 
 ```python
 todos = ["clean house", "exercise", "call family"]
@@ -338,17 +338,17 @@ todos.insert(2, "take out bins")
 # ["clean house", "exercise", "take out bins", "call family"]
 ```
 
-`clear` removes all items from a list
+`clear` removes all items from a list.
 
 ```python
-nums = [1,2,3]
+nums = [1, 2, 3]
 nums.clear() # []
 ```
 
 `pop` removes the item at a given index and returns it. If you don't specify an index, `pop` removes and returns the last item in the list.
 
 ```python
-nums = [1,2,3,4]
+nums = [1, 2, 3, 4]
 nums.pop() # 4
 nums.pop(1) # 2
 ```
@@ -356,42 +356,42 @@ nums.pop(1) # 2
 `remove` removes the first item that matches a specified value. It will throw a ValueError if the item is not found.
 
 ```python
-nums = [1,2,3,4,4,4,5]
-nums.remove(2) # [1,3,4]
-nums.remove(4) # [1,3,4,4,5]
+nums = [1, 2, 3, 4, 4, 4, 5]
+nums.remove(2) # [1, 3, 4]
+nums.remove(4) # [1, 3, 4, 4, 5]
 ```
 
 `index` returns the index of a specified item in a list. You can specify a start and end point.
 
 ```python
-nums = [5,6,7,8]
+nums = [5, 6, 7, 8]
 nums.index(6) # 1
 
-nums2 = [5,5,6,7,5,8,8,9,10]
+nums2 = [5, 5, 6, 7, 5, 8, 8, 9, 10]
 nums2.index(5,1) # 1
 nums2.index(8,6,8) # 6
 ```
 
-`count` returns the number of times a specified value occurs in a list
+`count` returns the number of times a specified value occurs in a list.
 
 ```python
-nums = [1,2,3,4,3,2,5,6,7,8,9,10,2]
+nums = [1, 2, 3, 4, 3, 2, 5, 6, 7, 8, 9, 10, 2]
 nums.count(2) # 3
 nums.count(3) # 2
 ```
 
-`reverse` will reverse the elements of a list (in-place)
+`reverse` will reverse the elements of a list (in-place).
 
 ```python
-nums = [1,2,3,4]
-nums.reverse() # [4,3,2,1]
+nums = [1, 2, 3, 4]
+nums.reverse() # [4, 3, 2, 1]
 ```
 
-`sort` sorts the items of a list (in-place)
+`sort` sorts the items of a list (in-place).
 
 ```python
-nums = [4,1,2,5,3]
-nums.sort() # [1,2,3,4,5]
+nums = [4, 1, 2, 5, 3]
+nums.sort() # [1, 2, 3, 4, 5]
 ```
 
 `join` (technically a string method) takes an iterable as an argument, concatenates a copy of the base string between each item of the iterable, and returns a new string.
@@ -416,15 +416,15 @@ The end parameter uses exclusive counting. Negative numbers tell you how many it
 The step gives you the interval to skip. When the step is a negative number, reverse the order.
 
 ```python
-first_list[1,2,3,4]
-first_list[1:] # [2,3,4]
+first_list[1, 2, 3, 4]
+first_list[1:] # [2, 3, 4]
 first_list[3:] # [4]
 first_list[-1:] # [4]
-first_list[:2] # [1,2]
-first_list[1:3] # [2,3]
-first_list[1:-1] # [2,3]
-first_list[::2] # [1,3]
-first_list[1::-1] # [2,1]
+first_list[:2] # [1, 2]
+first_list[1:3] # [2, 3]
+first_list[1:-1] # [2, 3]
+first_list[::2] # [1, 3]
+first_list[1::-1] # [2, 1]
 ```
 
 Slices can reverse a list or string.
@@ -437,6 +437,65 @@ string[::-1]
 Slices let you modify specific portions of a list.
 
 ```python
-nums = [1,2,3,4,5]
-nums[1:3] = ["a","b","c"] # [1,"a","b","c",4,5]
+nums = [1, 2, 3, 4, 5]
+nums[1:3] = ["a", "b", "c"] # [1, "a", "b", "c", 4, 5]
+```
+
+#### Swapping values
+
+You can swap values in a list, for example if you want to shuffle or sort the list.
+
+```python
+names = ["James", "Michelle"]
+names[0], names[1] = names[1], names[0]
+print(names) # ["Michelle", "James"]
+```
+
+## List Comprehension
+
+List comprehension lets you take an existing list and output another list with different values but based on the first list.
+
+The syntax is:
+
+```python
+[___ for ___ in ___]
+```
+
+For example:
+
+```python
+nums = [1, 2, 3]
+[x*10 for x in nums] # [10, 20, 30]
+```
+
+You can use list comprehension to manipulate strings and ranges too.
+
+```python
+name = "lisa"
+[char.upper() for char in name] # ["L", "I", "S", "A"]
+
+[num*10 for num in range(1,6)] # [10, 20, 30, 40, 50, 60]
+```
+
+List comprehension can be a concise way to covert one data type into another.
+
+```python
+numbers = [1, 2, 3, 4, 5]
+string_list = [str(num) for num in numbers] # ["1", "2", "3", "4", "5"]
+```
+
+### List Comprehension with Conditional Logic
+
+You can combine list comprehension with conditional logic.
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+evens = [num for num in numbers if num % 2 == 0]
+odds = [num for num in numbers if num % 2 != 0]
+```
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+[num*2 if num % 2 == 0 else num/2 for num in numbers]
+# [0.5, 4, 1.5, 8, 2.5, 12]
 ```
