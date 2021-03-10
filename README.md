@@ -531,3 +531,70 @@ You can also use list comprehension.
 nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 [print(val) for val in el] for el in nested_list]
 ```
+
+## Dictionaries
+
+A dictionary is a data structure that consists of key value pairs. The keys describe the data, the values represent the data.
+
+You can create a dictionary by assigning it directly to a variable, or by using the `dict` function.
+
+```python
+dog = {
+    "name": "Buddy",
+    "is_cute": True
+}
+
+cat = dict(name="Pangur Ban", age=4)
+```
+
+### Accessing Data in Dictionaries
+
+Like with lists, you can access a dictionary's values using [].
+
+```python
+instructor = {"name": "Colt"}
+instructor["name"] # Colt
+```
+
+### Iterating Over Dictionaries
+
+The `values` method gives you an iterable collection of a dictionary's values `dict_values` that you can then run through with a for loop.
+
+The `keys` method does the same thing for the dictionary's keys, creating `dict_keys`.
+
+```python
+instructor = {
+    "name": "Colt",
+    "courses": 6,
+    "effective": True
+}
+for value in instructor.values():
+    print(value)
+
+for key in instructor.keys():
+    print(key)
+```
+
+The `ìtems` method gives you both as `dict_items`.
+
+```python
+instructor = {
+    "name": "Colt",
+    "courses": 6,
+    "effective": True
+}
+for key,value in instructor.items():
+    print(key,value)
+```
+
+You can use `in` to check if a key is in a dictionary.
+
+```python
+"phone" in instructor # False
+```
+
+To check for a value, you can use `in` and the `values` method.
+
+```python
+"Colt" in instructor.values() # True
+```
