@@ -598,3 +598,36 @@ To check for a value, you can use `in` and the `values` method.
 ```python
 "Colt" in instructor.values() # True
 ```
+
+### Dictionary Methods
+
+`clear` will clear all the kays and values in a distionary.
+
+`copy` will make a copy of a dictionary.
+
+```python
+d = {
+    "a":1,
+    "b":2,
+    "c":3
+}
+c = d.copy()
+c == d # True
+c is d # False
+```
+
+`fromkeys` generates key-value pairs from comma seperated values. It can be used to generate default values.
+
+```python
+{}.fromkeys(["name", "bio"], "") # {"name": "", "bio": ""}
+```
+
+`get` retrieves a key in an objetc and returns None instead of KeyError if the key doesn't exist.
+
+```python
+d = dict(a=1,b=2,c=3)
+d["a"] # 1
+d.get("a") # 1
+d["no_key"] # KeyError
+d.get("no_key") # None
+```
