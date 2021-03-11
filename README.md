@@ -631,3 +631,30 @@ d.get("a") # 1
 d["no_key"] # KeyError
 d.get("no_key") # None
 ```
+
+`pop` takes a single argument corresponding to a key and removes that key-value pair from the dictionary. It returns the value corresponding to the key that was removed.
+
+```python
+d = dict(a=1,b=2,c=3)
+d.pop() # TypeError
+d.pop("a") # 1
+d = {"b":2, "c":3}
+d.pop("e") # KeyError
+```
+
+`popitem` removes a random key in a dictionary.
+
+```python
+d = dict(a=1,b=2,c=3,d=4,e=5)
+d.popitem() # ("d", 4)
+d.popitem("a") # TypeError
+```
+
+`update` updates the keys and values in a dictionary with another set of key value pairs. It adds keys and values that aren't there and overwrites the ones that are.
+
+```python
+first = dict(a=1,b=2,c=3)
+second = {}
+second.update(first)
+second # {"a":1, "b":2, "c":3}
+```
