@@ -658,3 +658,30 @@ second = {}
 second.update(first)
 second # {"a":1, "b":2, "c":3}
 ```
+
+### Dictionary Comprehension
+
+The syntax for a dictionary comprehension is similar to a list comprehension.
+
+```python
+{___:___for___in___}
+```
+
+It will iterate over keys by default. Use `.items()` to iterate over keys and values.
+
+```python
+numbers = dict(first=1, second=2, third=3)
+squared_numbers = {key: value ** 2 for key, value in numbers.items()}
+squared_numbers # {"first": 1, "second": 4, "third": 9}
+```
+
+You can use a dictionary comprehension to create a dictionary from another data structure.
+
+```python
+{num: num ** 2 for num in [1, 2, 3, 4, 5]}
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+num_list = [1, 2, 3, 4]
+{num:("even" if num % 2 == 0 else "odd") for num in Num_list}
+# {1: "odd", 2: "even", 3: "odd", 4: "even"}
+```
