@@ -820,3 +820,21 @@ math_students | biology_students # union
 math_students & biology_students # intersection
 # {"James", "Matthew"}
 ```
+
+### Set Comprehension
+
+Set comprehension can be useful when converting other data types to a set.
+
+The syntax for a set comprehension is similar to a dictionary comprehension but you don't include both a key and value.
+
+```python
+{x**2 for x in range(10)}
+# {0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
+```
+
+For example, this function checks if a string contains all 5 vowels.
+
+```python
+def are_all_vowels_in_string(string):
+    return len({char for char in string if char in "aeiou"}) == 5
+```
