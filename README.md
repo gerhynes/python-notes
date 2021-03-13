@@ -688,6 +688,8 @@ num_list = [1, 2, 3, 4]
 
 ## Tuples and Sets
 
+### Tuples
+
 A tuple is an ordered collection or grouping of items, and it is immutable. It's an unchanging way of storing ordered data.
 
 ```python
@@ -746,4 +748,75 @@ The `index` method retuns the first index at which a value is found in a tuple.
 x = (1, 2, 3, 3, 3)
 t.index(1) # 0
 t.index(3) # 2
+```
+
+### Sets
+
+Sets are like formal mathematical sets.
+
+Sets are a collection of unordered data that do not have duplicate values.
+
+You can't access items in a set by index.
+
+You can create a set using `{}` or the `set` function.
+
+```python
+first_set = set({1, 2, 2, 3, 4, 5, 5}) # {1, 2, 3, 4, 5}
+second_set = {1, 4, 5}
+4 in first_set # True
+```
+
+Converting a list to a set can be useful if you want to distill it down to unique values or check how many unique values it has.
+
+```python
+cities = ["Los Angeles", "London", "Florence", "London", "San Francisco", "Tokyo", "San Fransisco"]
+list(set(cities)) # ["Los Angeles", "London", "Florence", "San Francisco", "Tokyo"]
+```
+
+### Set Methods
+
+`add` adds an item to a set. If the element is already in the set, the set doesn't change.
+
+```python
+s = set([1, 2, 3])
+s.add(4) # {1, 2, 3, 4}
+```
+
+`remove` removes a value from a set. It returns a KeyError if the value is not found. `discard` does the same thing but doesn't cayuse a KeyError.
+
+```python
+set1 = {1, 2, 3, 4, 5, 6}
+set1.remove(3)
+set1 # {1, 2, 4, 5, 6}
+set1.discard(3)
+```
+
+`copy` creates a copy of a set.
+
+```python
+s = set([1, 2, 3])
+another_set = s.copy()
+another_set # {1, 2, 3}
+another_set is s # False
+```
+
+`clear` removes all the contens of a set.
+
+```python
+s = set([1, 2, 3])
+s.clear()
+s # set()
+```
+
+#### Set Math
+
+Sets have several mathematical methods. For example, `intersection`, `symmetric_difference`, `union`.
+
+```python
+math_students = {"Matthew", "Helen", "Prashant", "James", "Aparna"}
+biology_students = {"Jane", "Matthew", "Charlotte", "Mesult", "Oliver", "James"}
+math_students | biology_students # union
+# {"Charlotte", "Prashant", "Jane", "James", "Oliver", "Mesult", "Helen", "Aparna", "Matthew"}
+math_students & biology_students # intersection
+# {"James", "Matthew"}
 ```
