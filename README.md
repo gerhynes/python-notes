@@ -838,3 +838,19 @@ For example, this function checks if a string contains all 5 vowels.
 def are_all_vowels_in_string(string):
     return len({char for char in string if char in "aeiou"}) == 5
 ```
+
+## Functions
+
+Functions are packages of code that you can call at any point. They can accept an input and return an output.
+
+Functions help your code to stay dry and logically organized. They are also useful for abstracting away code.
+
+The syntax is:
+
+```python
+def name_of_function():
+    # block of reusable code
+```
+
+The `return` keyword exits the function, outputs whatever is placed after the return keyword, and pops the function off the call stack.
+
