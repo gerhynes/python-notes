@@ -685,3 +685,65 @@ num_list = [1, 2, 3, 4]
 {num:("even" if num % 2 == 0 else "odd") for num in Num_list}
 # {1: "odd", 2: "even", 3: "odd", 4: "even"}
 ```
+
+## Tuples and Sets
+
+A tuple is an ordered collection or grouping of items, and it is immutable. It's an unchanging way of storing ordered data.
+
+```python
+numbers = (1, 2, 3, 4)
+```
+
+- Tuples are faster than lists.
+
+- Tuples can make your code safer.
+
+- Tuples can be used as valid keys in a dictionary.
+
+Calling `.items()` on a dictionary will return a list of tuples.
+
+You can create a tuple with `()` of the `tuple` function.
+
+You can access a tuple's values using `[]`.
+
+```python
+first_tuple = (1, 2, 3, 3, 3)
+first_tuple[1] # 2
+
+second_tuple = tuple(5, 1, 2)
+second_tuple[0] # 5
+```
+
+You can use a tuple as a key in a dictionary (where you couldn't use a list).
+
+```python
+locations = {
+    (35.6895, 39.6917): "Tokyo Office",
+    (40.7128, 74.0060): "New York Office"
+}
+```
+
+### Tuple Methods and Looping
+
+You can use a for loop on a tuple, just like a list.
+
+```python
+names = ("Colt", "Blue", "Rusty")
+for name in names:
+    print(name)
+```
+
+The `count` method returns the number of times a value is in a tuple.
+
+```python
+x = (1, 2, 3, 3, 3)
+x.count(3) # 3
+```
+
+The `index` method retuns the first index at which a value is found in a tuple.
+
+```python
+x = (1, 2, 3, 3, 3)
+t.index(1) # 0
+t.index(3) # 2
+```
