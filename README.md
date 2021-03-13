@@ -854,3 +854,48 @@ def name_of_function():
 
 The `return` keyword exits the function, outputs whatever is placed after the return keyword, and pops the function off the call stack.
 
+Parameters are the values passed to a function. You can call them anything but try to give them descriptive names.
+
+```python
+def square(num):
+    return num * num
+
+def print_full_name(first_name, last_name):
+    return(f"Your full name is {first_name} and {last_name}")
+```
+
+- Parameters refer to the variable in a method definition.
+- When a method is called, the arguments are the data you pass into the method's parameters.
+- Parameters are the variables in the declaration of a function.
+- Arguments are the actual value of the variables that get passed to the function.
+
+```python
+def sing_happy_birthday(name):
+    # Print song lyrics with name
+
+sing_happy_birthday("Nicholas")
+```
+
+#### Common Mistakes When Returning
+
+Be careful with indentation or you may return too soon.
+
+```python
+def sum_odd_numbers(numbers):
+    total = 0
+    for num in numbers:
+        if num % 2 == 0:
+            total += num
+        return num
+
+print(sum_odd_numbers([1, 2, 3, 4, 5, 6, 7])) # 1
+
+def sum_odd_numbers(numbers):
+    total = 0
+    for num in numbers:
+        if num % 2 == 0:
+            total += num
+    return num
+
+print(sum_odd_numbers([1, 2, 3, 4, 5, 6, 7])) # 16
+```
