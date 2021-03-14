@@ -947,3 +947,62 @@ full_name(last="Steele", first="Colt") # Your name is Colt Steele
 When you define a function and use an `=` you are setting a default parameter.
 
 When you invoke a function and use an `=` you are making a keyword argument.
+
+### Scope
+
+Scope governs where variables can be accessed.
+
+Variables created in functions are scoped to that function.
+
+```python
+def say_hello():
+    instructor = "Colt"
+    return f"Hello {instructor}"
+
+say_hello() # Hello Colt
+print(instructor) # NameError
+```
+
+When you reference a global variable inside a function, the function assumes there is a local variable scoped to that function and will throw an error if you try to mutate the variable.
+
+The `global` keyword lets you reference variables that were originally assigned in the global scope.
+
+```python
+total = 0
+
+def increment():
+    total += 1
+    return total
+
+def decrement():
+    global total
+    total -= 1
+    return total
+
+increment() # Error - local variable referenced before assignment
+decrement() # -1
+```
+
+The `nonlocal` keyword lets you modify a parent's variable in a child (nested) function.
+
+```python
+def outer():
+    count = 0
+    def inner():
+        nonlocal count
+        count += 1
+        return count
+    return inner()
+```
+
+### Documenting Functions
+
+When writing complex function, Python uses `""" """` to document what the function does.
+
+```python
+def say_hello():
+    """A simple function that returns the string hello"""
+    return "Hello"
+
+say_hello.__doc__ # 'A simple function that returns the string hello'
+```
