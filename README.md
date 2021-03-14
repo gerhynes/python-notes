@@ -899,3 +899,51 @@ def sum_odd_numbers(numbers):
 
 print(sum_odd_numbers([1, 2, 3, 4, 5, 6, 7])) # 16
 ```
+
+#### Default Parameters
+
+You can set default parameters to be used if none are passed in.
+
+They allow you to be more defensive and avoid errors with incorrect parameters.
+
+```python
+def exponent(num, power=2):
+    return num ** power
+
+exponent(2,3) # 8
+exponent(7) # 49
+```
+
+Default parameters can be anything - functions, lists, dictionaries, strings, Booleans.
+
+```python
+def add(a,b):
+    return a + b
+
+def subtract(a,b):
+    return a - b
+
+def math(a,b, fn=add):
+    return fn(a,b)
+
+math(2,2) # 4
+math(2,2, subtract) # 0
+```
+
+#### Keyword Arguments
+
+Keyword arguments let you specify which argument corresponds to whcih parameter if you know that name of the parameters. Order doesn't matter.
+
+This makes functions more flexible and becomes important when passing a dictionary to a function.
+
+```python
+def full_name(first, last):
+    return f"Your name is {first} {last}"
+
+full_name(first="Colt", last="Steele") # Your name is Colt Steele
+full_name(last="Steele", first="Colt") # Your name is Colt Steele
+```
+
+When you define a function and use an `=` you are setting a default parameter.
+
+When you invoke a function and use an `=` you are making a keyword argument.
