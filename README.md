@@ -1006,3 +1006,33 @@ def say_hello():
 
 say_hello.__doc__ # 'A simple function that returns the string hello'
 ```
+
+### \*args
+
+`*args` is a special operator you can pass to a function as a parameter. It gathers all remaining arguments as a tuple.
+
+As long as it starts with `*` it can be given other names, for example `*nums`, `*details`.
+
+```python
+def sum_all_nums(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+
+sum_all_nums(4,6,9,4,10) # 33
+```
+
+### \*\*kwargs
+
+`**kwargs` (keyword args) is another special operator you can pass to a function. It gathers any remaining keyword arguments as a dictionary.
+
+As long as it starts with `**` you can give it other names, `**extra_stuff`.
+
+```python
+def fav_colors(**kwargs):
+    print(kwargs)
+
+fav_colors(colt="purple", ruby="red", ethel="teal")
+# {"colt": "purple", "ruby": "red", "ethel": "teal"}
+```
