@@ -1036,3 +1036,42 @@ def fav_colors(**kwargs):
 fav_colors(colt="purple", ruby="red", ethel="teal")
 # {"colt": "purple", "ruby": "red", "ethel": "teal"}
 ```
+
+#### Ordering Parameters
+
+In function declarations, use the following ordering:
+
+1. parameters
+2. \*args
+3. default parameters
+4. \*\*kwargs
+
+### Unpacking Arguments with \*
+
+You can use `*` as an argument to a function to unpack values from lists or tuples.
+
+```python
+def sum_all_values(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+
+nums = [1, 2, 3, 4, 5, 6]
+sum_all_values(nums) # Error
+sum_all_values(*nums) # 21
+```
+
+### Unpacking Dictionaries with \*\*
+
+You can use `**` to unpack a dictionary into keyword arguments.
+
+```python
+def display_names(first, second):
+    print(f"{first} says hello to {second}")
+
+names = {"first":"Colt", "second": "Rusty"}
+
+display_names(names) # Error
+display_names(**names) # "Colt says hello to Rusty"
+```
