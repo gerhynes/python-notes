@@ -1078,6 +1078,8 @@ display_names(**names) # "Colt says hello to Rusty"
 
 ## Lambdas and Built-in Functions
 
+### Lambdas
+
 Lambdas are short anonymous functions intended to be used one time.
 
 ```python
@@ -1122,4 +1124,30 @@ names = [
 
 first_names = list(map(lambda x: x["first"], names))
 # ["Colt", "Rusty", "Blue"]
+```
+
+### Filter
+
+`filter` allows you to take a collection and filter out desired items.
+
+`filter` calls a lambda for each value in the iterable. It returns a filter object which can be converted into another iterable. The object contains only the values that returned True to the lambda.
+
+```python
+lst = [1, 2, 3, 4]
+evens = list(filter(lambda num: num % 2 == 0, lst)) # [2, 4]
+```
+
+You can combine `filter` and `map`:
+
+```python
+names = ["Laurie", "Colt", "Rusty"]
+list(map(lambda name: f"Your instructor is {name}",
+    filter(lambda value: len(value) < 5, name)))
+# ["Your instructor is Colt"]
+```
+
+If you can use list comprehension to do the same thing, you probably should.
+
+```python
+[f"Your instructor is {name}" for name in name if len(name) < 5]
 ```
