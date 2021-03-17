@@ -1075,3 +1075,51 @@ names = {"first":"Colt", "second": "Rusty"}
 display_names(names) # Error
 display_names(**names) # "Colt says hello to Rusty"
 ```
+
+## Lambdas and Built-in Functions
+
+Lambdas are short anonymous functions intended to be used one time.
+
+```python
+lambda parameters: body of function
+```
+
+Lambdas can be stored in variables but are more commonly passed into functions as a parameter.
+
+```python
+def square(num): return num * num
+
+square2 = lambda num: num * num
+
+square(9) # 81
+square2(9) # 81
+
+button = tk.Button(frame,
+    text="CLICK ME",
+    fg="red",
+    command=lambda: print("Hello")
+)
+```
+
+### Map
+
+`map` is a standard function that accepts at least two arguments, a function and an iterable.
+
+An iterable is something that can be iterated over (lists, strings, dictionaries, sets, tuples).
+
+`map` runs a lambda for each value in the iterable and returns a map object which can be converted into another data structure.
+
+```python
+lst = [1, 2, 3, 4]
+
+doubles = list(map(lambda X: x*2, lst)) # [2, 4, 6, 8]
+
+names = [
+    {"first": "Colt", "last":"Steele"},
+    {"first": "Rusty", "last":"Steele"},
+    {"first": "Blue", "last":"Steele"},
+]
+
+first_names = list(map(lambda x: x["first"], names))
+# ["Colt", "Rusty", "Blue"]
+```
