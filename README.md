@@ -1151,3 +1151,60 @@ If you can use list comprehension to do the same thing, you probably should.
 ```python
 [f"Your instructor is {name}" for name in name if len(name) < 5]
 ```
+
+### All
+
+`all` returns True if all elements of the iterable passed in are truthy (or if the iterable is empty).
+
+```python
+all([0, 1, 2, 3]) # False
+all([char for char in "eio" if char in "aeiou"]) # True
+all([num for num in [4, 2, 10, 6, 8] if num % 2 == 0]) # True
+```
+
+### Any
+
+`any` returns True if any element of the iterable is truthy. If the iterable is empty, it returns False.
+
+```python
+nums = [2, 60, 26, 18, 21]
+any([num % 2 == 1 for num in nums]) # True
+```
+
+### Generator Expressions
+
+If all you're doing is iterating once and you don't need to store and use the generated results, you can use a generator expression in place of a list comprehension. It's more lightweight in terms of memory.
+
+```python
+import sys
+list_comp = sys.getsizeof([x * 10 for x in range(1000)]) # 9024 bytes
+gen_exp = sys.getsizeof(x * 10 for x in range(1000)) # 88 bytes
+```
+
+### Sorted
+
+`sorted` returns a new sorted list from the items in an iterable. It doesn't change the original iterable.
+
+```python
+more_nums = [6, 1, 8, 2]
+sorted(more_nums) # [1, 2, 6, 8]
+```
+
+You can sort in descending order by including `reverse=True`
+
+```python
+more_nums = [6, 1, 8, 2]
+sorted(more_nums, reverse=True) # [8 , 6, 2, 1]
+```
+
+You can use `sorted` with dictionaries by using `key` to specify what to sort by.
+
+```python
+users = [
+    {"name": "Katie", "tweets": ["I make ceramics", "We put another rover on Mars"]},
+    {"name": "Colt", "tweets": ["I love cats"]},
+    {"name": "Rusty", "tweets": [], "id": 1234, "pro": True },
+]
+sorted(users, key=lambda user: user["name"])
+sorted(users, key=lambda user: len(user["tweets"]))
+```
