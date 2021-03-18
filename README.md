@@ -1208,3 +1208,32 @@ users = [
 sorted(users, key=lambda user: user["name"])
 sorted(users, key=lambda user: len(user["tweets"]))
 ```
+
+### Max
+
+`max` returns the largest item in an iterable or the largest of two or more arguments. You can specify how things are sorted using `key`.
+
+```python
+max(3, 67, 99) # 99
+max("hello world") # "w"
+
+names = ["Arya", "Samson", "Dora", "Tim", "Ollivander"]
+max(names) # Tim - alphabetical
+max(names, key=lambda n: len(n)) # Ollivander - length
+```
+
+### Min
+
+`min` returns the smallest item in an iterable or the smallest of two or more arguments.
+
+```python
+min((36, 21, 7)) # 7
+
+song = {
+    {"title": "Happy Birthday", "playcount": 1},
+    {"title": "I Will Survive", "playcount": 6},
+    {"title": "YMCA", "playcount": 99},
+    {"title": "Toxic", "playcount": 31},
+}
+min(songs, key=lambda song: song["playcount"])
+```
