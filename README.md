@@ -1237,3 +1237,23 @@ song = {
 }
 min(songs, key=lambda song: song["playcount"])
 ```
+
+### Reversed
+
+`reversed` returns a reversed iterator (works with other structures than lists). You'd use it if you were iterating over something in reverse.
+
+```python
+for x in reversed(range(0, 10)):
+    print(x)
+```
+
+### Len
+
+`len` returns the length (number of items) of an object. The argument may be a sequence (such as a string, tuple, list or range) or a collection (such as a dictionary or set).
+
+```python
+len("asdasdas") # 8
+len({}) # 0
+```
+
+Each object has a built in method `__len__()` which is called when you use `len`.
