@@ -1284,3 +1284,46 @@ sum([1,2,3], 10) # 16
 round(10.2) # 10
 round(1.212121, 2) # 1.21
 ```
+
+### Zip
+
+`zip` makes an iterator that aggregates elements from each of the provided iterables.
+
+It returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the provided iterables.
+
+The iterator stops when the shortest input iterable is exhausted.
+
+```python
+first_zip = zip([1, 2, 3], [4, 5, 6])
+list(first_zip) # [(1, 4), (2, 5), (3, 6)]
+dict(first_zip) # {1: 4, 2: 5, 3: 6}
+```
+
+You can use `*` to unpack a list of tuples before zipping them. This becomes useful when working with more complex data structures.
+
+```python
+five_by_two = [(0, 1), (1, 2), (2, 3), (3, 4), (4,5)]
+list(zip(*five_by_two))
+# [(0, 1, 2, 3, 4), (1, 2, 3, 4, 5)]
+```
+
+```python
+midterms = [88, 91, 78]
+finals = [98, 89, 73]
+students = ["kate", "ang", "dan"]
+
+# zip + dictionary comprehension
+final_grades = {t[0]: max(t[1], t[2]) for t in zip(students, midterms, finals)}
+# {"kate": 98, "ang": 91, "dan":78}
+
+# zip + lambda
+grades = dict(
+    zip(
+        students,
+        map(
+            lambda pair: max(pair),
+            zip(midterms, finals)
+        )
+    )
+)
+```
