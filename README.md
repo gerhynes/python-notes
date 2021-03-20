@@ -1257,3 +1257,30 @@ len({}) # 0
 ```
 
 Each object has a built in method `__len__()` which is called when you use `len`.
+
+### Abs
+
+`abs` returns the absolute value of a number. The argument may be an integer or float.
+
+```python
+abs(-5) # 5
+abs(5.44) # 5.44
+```
+
+### Sum
+
+`sum` takes an iterable and an optional start (by default 0). It returns the sum of the start and the items of the iterable from left to right.
+
+```python
+sum([1,2,3]) # 6
+sum([1,2,3], 10) # 16
+```
+
+### Round
+
+`round` returns a number rounded to `ndigits` after the decimal point. If `ndigits` is ommitted or is `None`, it returns the nearest integer to the input.
+
+```python
+round(10.2) # 10
+round(1.212121, 2) # 1.21
+```
