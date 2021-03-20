@@ -1326,4 +1326,37 @@ grades = dict(
         )
     )
 )
+# {"kate": 98, "ang": 91, "dan":78}
+```
+
+## Debugging and Error Handling
+
+`SyntaxError` occurs when Python encounters something it can't parse. Usually due to typos.
+
+`NameError` occurs when a variable hasn't been assigned yet.
+
+`TypeError` occurs when an operation or function is applied to the wrong type.
+
+`IndexError` occurs when you try to access an element in a list using an invalid index (one outside it's range).
+
+`ValueError` occurs when a built-in operation or function receives an argument that has the right type but an inappropriate value, for example `int("abcd")`.
+
+`KeyError` occurs when a dictionary does not have a specific key.
+
+`AttributeError` occurs when a variable does not have an attribute, for example `[1, 2, 3].greet()`.
+
+### Raising Errors
+
+You can deliberately raise specific errors using the `raise` keyword.
+
+```python
+def colorize(text, color):
+    colors = ("cyan", "yellow", "blue", "green", "magenta")
+    if type(text) != str:
+        raise TypeError("text must be instance of str")
+    if type(color) != str:
+        raise TypeError("color must be instance of str")
+    if color not in colors:
+        raise ValueError("color is invalid color")
+    print(f"Printed {text} in {color}")
 ```
