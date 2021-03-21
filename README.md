@@ -1431,3 +1431,28 @@ Common pdb commands include:
 - n - next line
 - p - print
 - c - continue, finishes debugging
+
+## Modules
+
+Modules help keep your files small and reuse code across files.
+
+```python
+import random
+
+random.choice(["apple", "banana", "cherry", "durian"])
+random.shuffle(["apple", "banana", "cherry", "durian"])
+```
+
+You can alias a module when importing it.
+
+```python
+import random as omg_so_random
+
+omg_so_random.choice(["apple", "banana", "cherry", "durian"])
+```
+
+The keyword `from` lets you import only the parts of a module that you need.
+
+```python
+from random import randint, choice
+```
