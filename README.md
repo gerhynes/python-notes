@@ -1455,4 +1455,50 @@ The keyword `from` lets you import only the parts of a module that you need.
 
 ```python
 from random import randint, choice
+
+from random import * # makes everything available in the namespace
+```
+
+### Custom Modules
+
+You can import code from one of your Python files into another file. This is helpful for keeping things organized and reusable.
+
+```python
+# file1
+def fn():
+    return "Do something"
+
+def other_fn():
+    return "Do the other thing"
+
+# file2
+import file1
+
+file1.fn()
+file1.other_fn()
+```
+
+### External Modules
+
+External modules can be downloaded using pip, Python's package installer.
+
+```python
+python3 -m pip install NAME_OF_PACKAGE
+```
+
+```python
+from pyfiglet import figlet_format
+from termcolor import colored
+
+def print_art(msg, color):
+    valid_colors = ("red", "green", "yellow", "blue", "magenta", "cyan")
+    if color not in valid_colors:
+        color = "magenta"
+    ascii_art = figlet_format(msg)
+    colored_ascii = colored(ascii_art, color=color)
+    print(colored_ascii)
+
+msg = input("What would you like to print? ")
+color = input("What color?")
+print_art(msg, color)
 ```
