@@ -1360,3 +1360,48 @@ def colorize(text, color):
         raise ValueError("color is invalid color")
     print(f"Printed {text} in {color}")
 ```
+
+### Try and Except Blocks
+
+In Python you're strongly encouraged to use try/except blocks to catch and handle exceptions.
+
+You don't want to catch all errors with a blank except. You need to correctly identify what went wrong.
+
+```python
+def getKey(d, key):
+    try:
+        return d[key]
+    except KeyError:
+        return None
+```
+
+`try` will attempt to do something. If there's a problem `except` will run. I there's not a problem `else` runs. No matter what, `finally` runs.
+
+```python
+while True:
+    try:
+        num = int(input("please enter a number: "))
+    except ValueError:
+        print("That's not a number")
+    else:
+        print("Good job, you entered a number")
+        break
+    finally:
+        print("Runs no mattter what")
+print("The rest of the logic runs")
+```
+
+If you want the error itself, you can access it using `as`
+
+```python
+def divide(a,b):
+    try:
+        result = a/b
+    except ZeroDivisionError:
+        print("Please don't divide by zero")
+    except TypeError as err:
+        print("arguments must be ints or floats")
+        print(err)
+    else:
+        print(f"{a} divided by {b} is {result}")
+```
