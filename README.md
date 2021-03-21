@@ -1405,3 +1405,29 @@ def divide(a,b):
     else:
         print(f"{a} divided by {b} is {result}")
 ```
+
+### Debugging with pdb
+
+`pdb` is a module that lets you set breakpoints in your code, check values, and step through your code.
+
+```python
+import pdb; pdb.set_trace()
+```
+
+```python
+import pdb
+first = "First"
+second = "Second"
+pdb.set_trace()
+result = first + second
+third = "Third"
+result += third
+print(result)
+```
+
+Common pdb commands include:
+
+- l - list
+- n - next line
+- p - print
+- c - continue, finishes debugging
