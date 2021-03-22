@@ -1536,3 +1536,31 @@ if __name__ == "__main__":
     # this code will only run
     # if the file is the main file
 ```
+
+## Making HTTP Requests with Python
+
+When you enter a url into your browser, the folowing steps happen:
+
+1. DNS lookup turns the url into an IP address
+2. Your computer makes a REQUEST to a server
+3. The server processes the REQUEST
+4. The server issues a RESPONSE.
+
+This is the Request/Response cycle.
+
+DNS lookup connects domain names and IP addresses through a DNS server.
+
+HTTP headers are sent with both requests and responses. Theyprovide additional information about the request or response.
+
+- `Accept` - Acceptable content-types for response (for exmple, html, json, xml)
+- `Cache-Control` - Specify caching behaviour
+- `User-Agent` - Contains information about the software used to make the request
+- `Access-Control-Allow-Origin` - Specify domains that can make requests
+- `Allowed` - HTTP verbs that are allowed in requests
+
+Response Status Codes
+
+- 2xx - Success
+- 3xx - Redirect
+- 4xx - Client Error (your fault)
+- 5xx - Server Error (not your fault)
