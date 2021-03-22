@@ -1499,6 +1499,40 @@ def print_art(msg, color):
     print(colored_ascii)
 
 msg = input("What would you like to print? ")
-color = input("What color?")
+color = input("What color? ")
 print_art(msg, color)
+```
+
+### autopep8
+
+The autopep8 package will automatically format your Python code to conform to the pep8 styleguide.
+
+You can set autopep8 to be more or less aggressive in its formatting.
+
+```
+autopep8 --in-place --aggressive --aggressive <filename>
+```
+
+For example, `-a`or `--aggressive` enables non-whitespace changes; multiple `-a` result in
+more aggressive changes
+
+### The `__name__` Variable
+
+When run, every Python file has a `__name__` variable.
+
+If the file is the main file being run, its value is **main**.
+
+Otherwise, its value is the file name.
+
+When you use `import`, Python:
+
+1. Tries to find the module (if it fails it throws an error).
+2. Runs the code inside the module being imported.
+
+You can ignore code on `import`:
+
+```python
+if __name__ == "__main__":
+    # this code will only run
+    # if the file is the main file
 ```

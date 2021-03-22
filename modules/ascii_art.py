@@ -10,5 +10,5 @@ def print_art(msg, color):
     print(colored_ascii)
 
 msg = input("What would you like to print? ")
-color = input("What color?")
+color = input("What color? ")
 print_art(msg, color)
