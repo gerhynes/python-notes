@@ -1590,3 +1590,7 @@ An API can be thought of as the version of a website intended for computers rath
 APIs allow you to get data from another application without needing to understand how that application works.
 
 Often, they can send the data back in different formats, such as json or xml.
+
+### requests
+
+The requests module lets you make http requests using Python.
