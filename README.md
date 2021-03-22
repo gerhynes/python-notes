@@ -1564,3 +1564,29 @@ Response Status Codes
 - 3xx - Redirect
 - 4xx - Client Error (your fault)
 - 5xx - Server Error (not your fault)
+
+### HTTP Verbs
+
+`GET` Requests
+
+- Used for retrieving data
+- Data passed in a query string
+- Should have no side-effects
+- Can be cached
+- Can be bookmarked
+
+`POST` Requests
+
+- Used for writing data
+- Data passed in request body
+- Can have side-effects
+- Not cached
+- Can't be bookmarked
+
+### APIs
+
+An API can be thought of as the version of a website intended for computers rather than humans.
+
+APIs allow you to get data from another application without needing to understand how that application works.
+
+Often, they can send the data back in different formats, such as json or xml.
