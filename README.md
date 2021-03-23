@@ -1611,3 +1611,9 @@ print(data["joke"])
 ```
 
 When you make a json request, it comes back as one giant string. You need to use the `json` method to turn it into a Python dictionary.
+
+### Sending Requests with Params
+
+A query string is a way to pass data to a server as part of a GET request: `http://www.example.com/?key1=value1&key2=value2`
+
+The params are the kay value pairs you include in it.
