@@ -1617,3 +1617,17 @@ When you make a json request, it comes back as one giant string. You need to use
 A query string is a way to pass data to a server as part of a GET request: `http://www.example.com/?key1=value1&key2=value2`
 
 The params are the kay value pairs you include in it.
+
+```python
+import requests
+url = "https://icanhazdadjoke.com/search"
+
+response = requests.get(
+    url,
+    headers={"Accept": "application/json"},
+    params={"term": "cat", "limit": 1}
+)
+
+data = response.json()
+print(data["results"])
+```
