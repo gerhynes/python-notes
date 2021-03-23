@@ -1593,4 +1593,21 @@ Often, they can send the data back in different formats, such as json or xml.
 
 ### requests
 
-The requests module lets you make http requests using Python.
+The requests module lets you make http requests using Python. It's useful for web scraping/crawling and rabbing data from APIs.
+
+### Requesting json
+
+You can use request headers to specify the format you want to receive data in from an API.
+
+```python
+import requests
+url = "https://icanhazdadjoke.com/"
+
+response = requests.get(url, headers={"Accept": "application/json"})
+
+data = response.json()
+
+print(data["joke"])
+```
+
+When you make a json request, it comes back as one giant string. You need to use the `json` method to turn it into a Python dictionary.
