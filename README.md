@@ -1631,3 +1631,40 @@ response = requests.get(
 data = response.json()
 print(data["results"])
 ```
+
+## Object Oriented Programming
+
+OOP is a method of programming that attempts to model some process or thing in the world as a **class** or **object**.
+
+**class** - a blueprint for objects. Classes can contain methods (functions) and attributes (similar to keys in a dict)
+
+**instance** - objects that are constructed from a class blueprint that contain their class's methods and properties.
+
+With OOP, your goal is to encapsulate your code into **logical, hierarchical groupings using classes** so that you can reason about your code at a higher level.
+
+Say you want to model a game of poker. You could have the following entities:
+
+- Game
+- Player
+- Card
+- Deck
+- Hand
+- Chip
+- Bet
+
+A hyptehtical Deck class might have the following attributes and methods:
+
+- \_cards (private list attribute)
+- \_max_cards (private list attribute)
+- shuffle (public method)
+- deal_card (public method)
+- deal_hand (public method)
+- count (public method)
+
+Some things don't need to be exposed to the outside world, they can be accessed through methods.
+
+Unlike with Java, in Python there isn't a true distinction between public and private but good code follows the convention of designating some things as private.
+
+**encapsulation** - the grouping of public and private atrributes and methods ito a programmatic class, making **abstraction** possible.
+
+**abstraction** - exposing only "relevant" data in a class interface, hiding private attributes and methods (aka the "inner workings") from users.
