@@ -1668,3 +1668,22 @@ Unlike with Java, in Python there isn't a true distinction between public and pr
 **encapsulation** - the grouping of public and private atrributes and methods ito a programmatic class, making **abstraction** possible.
 
 **abstraction** - exposing only "relevant" data in a class interface, hiding private attributes and methods (aka the "inner workings") from users.
+
+### Creating Classes and Instances
+
+Classes in Python can have a special `__init__` method, which gets called every time you create (instantiate) an instance of the class. This initializes the data in the instance.
+
+```python
+class Vehicle:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+car1 = Vehicle("Ford", "Fiesta", "2012")
+car2 = Vehicle("Honda", "Civic", "2014")
+```
+
+Creating an object that is an instance of a class is called **instantiating** a class.
+
+The `self` keyword refers to the specific instance of the class you're working with. `self` must always be the first parameter to `__init__` and to any methods and properties you define on class instances.
