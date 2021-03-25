@@ -1735,6 +1735,49 @@ class User:
         self.age += 1
         return f"Happy {self.age} birthday, {self.first}"
 
-user1 = User("Joe", "Smith", 35)
+user1 = User("Joe", "Woods", 35)
 user2 = User("Bianca", "Lopez", 38)
 ```
+
+### Class Attributes and Methods
+
+If an instance attribute is defined on each individual instance of a class, a class attribute is defined once and lives on the class itself. It is shared by all instances of the class and by the class itself.
+
+```python
+class User:
+
+    active_users = 0 # <-- class attribute
+
+    def __init__(self, first, last, age):
+        self.first = first
+        self.last = last
+        self.age = age
+        User.active_users += 1
+
+    def logout(self):
+        User.active_users -= 1
+        return f"{self.first} has logged out"
+
+user1 = User("Joe", "Woods", 35)
+user2 = User("Bianca", "Lopez", 38)
+print(User.active_users) # 2
+```
+
+```python
+class Pet:
+
+    allowed = ["cat", "dog", "fish", "rodent"]
+
+    def __init__(self, name, species):
+        if species not in Pet.allowed:
+            raise ValueError(f"You can't have a {species} as a pet!")
+        self.name = name
+        self.species = species
+
+    def set_species(self, species):
+        if species not in Pet.allowed:
+            raise ValueError(f"You can't have a {species} as a pet!")
+        self.species = species
+```
+
+You can refer to a class attribute with `Pet.allowed` or `self.allowed`, as long as you're just accessing and not updating the value. Using the class name is more conventional.
