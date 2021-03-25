@@ -1687,3 +1687,54 @@ car2 = Vehicle("Honda", "Civic", "2014")
 Creating an object that is an instance of a class is called **instantiating** a class.
 
 The `self` keyword refers to the specific instance of the class you're working with. `self` must always be the first parameter to `__init__` and to any methods and properties you define on class instances.
+
+### Underscores and Names
+
+```python
+class Person:
+    def __init__(self):
+        self.name = "Tony"
+        self._secret = "hi"
+        self.__msg = "Turtles all the way down"
+
+p = Person()
+```
+
+Dunder methods, like `__init__`, are built into Python. You generally don't define your own.
+
+Private methods and attributes, not intended for use outside of a class, are conventionally written with a leading underscore `self._secret`.
+
+When you put double underscores before the name of a method or attribite, Python "mangles" the name of that attribute, making it particular to that class. For example, `self.__msg` becomes `_Person__msg`.
+
+### Instance Attributes and Methods
+
+Classes are not just storage places for information, they also have functionality.
+
+`self` is necessary for all methods, even if you aren't using it.
+
+```python
+class User:
+    def __init__(self, first, last, age):
+        self.first = first
+        self.last = last
+        self.age = age
+
+    def full_name(self):
+        return f"{self.first} {self.last}"
+
+    def initials(self):
+        return f"{self.first[0]}.{self.last[0]}."
+
+    def likes(self, thing):
+        return f"{self.first} likes {thing}"
+
+    def is_senior(self):
+        return self.age >= 65
+
+    def birthday(self):
+        self.age += 1
+        return f"Happy {self.age} birthday, {self.first}"
+
+user1 = User("Joe", "Smith", 35)
+user2 = User("Bianca", "Lopez", 38)
+```
