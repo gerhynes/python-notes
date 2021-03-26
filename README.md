@@ -1739,7 +1739,7 @@ user1 = User("Joe", "Woods", 35)
 user2 = User("Bianca", "Lopez", 38)
 ```
 
-### Class Attributes and Methods
+### Class Attributes
 
 If an instance attribute is defined on each individual instance of a class, a class attribute is defined once and lives on the class itself. It is shared by all instances of the class and by the class itself.
 
@@ -1781,3 +1781,26 @@ class Pet:
 ```
 
 You can refer to a class attribute with `Pet.allowed` or `self.allowed`, as long as you're just accessing and not updating the value. Using the class name is more conventional.
+
+### Class Methods
+
+Class methods are methods (with the @classmethod decorator) that are not concerned with instances, but with the class itself (often passed into the class method as `cls`).
+
+One use for a class methid is if you need to pass in data in one format and convert it to another before `__init__` is called.
+
+```python
+class User:
+    # ...
+
+    @classmethod
+    def display_active_users(cls):
+        return f"There are currently {cls.active_users} active users"
+
+    @classmethod
+    def from_string(cls, data_str):
+        first, last, age = data_str.split(",")
+        return cls(first, last, int(age))
+
+User.display_active_users()
+tom = User.from_string("Tom,Jones,79")
+```
