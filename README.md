@@ -1869,3 +1869,32 @@ class Human:
         else:
             raise ValueError("age can't be a negative")
 ```
+
+### Super
+
+When initialising a child class, `super` lets you reduce duplication. `super` will refer to the parent class and automatically pass in `self` as the first argument.
+
+```python
+class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+
+    def __repr__(self):
+        return f"{self.name} is a {self.species}"
+
+    def make_sound(self, sound):
+        print(sound)
+
+class Cat(Animal):
+    def __init__(self, name, breed, toy):
+        super().__init__(name, species="Cat")
+        self.breed = breed
+        self.toy = toy
+
+    def play(self):
+        print(f"{self.name} plays with {self.toy}")
+
+blue = Cat("Blue", "Scottish Fold", "String")
+blue.play() # Blue plays with String
+```
