@@ -1828,3 +1828,44 @@ print(f"{colt} is totally rad (probably)")
 ```
 
 There are also several other dunders to return classes in string formats (`__str__`, `__format__`) and choosing one is a bit complicated.
+
+### Inheritance
+
+A key feature of OOP is the ability to define a class which inherits from another class (a "base" or "parent" class).
+
+In Python, inheritance works by passing the parent class as an argument to the definition of a child class.
+
+```python
+class Animal:
+    def make_sound(self, sound):
+        print(sound)
+
+class Cat(Animal):
+    pass
+
+tivaldo = Cat()
+tivaldo.make_sound("meow") # "meow"
+```
+
+### Properties
+
+Without having private methods or attributes, Python relies on following conventions. Properties let you approximate private methods and attributes.
+
+```python
+class Human:
+    def __init__(self, first, last, age):
+        self.first = first
+        self.last = last
+        self.age = age
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        if value >= 0:
+            self._age = value
+        else:
+            raise ValueError("age can't be a negative")
+```
