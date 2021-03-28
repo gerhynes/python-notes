@@ -1804,3 +1804,27 @@ class User:
 User.display_active_users()
 tom = User.from_string("Tom,Jones,79")
 ```
+
+### String Representation
+
+The `__repr__` method is one of several ways to provide a nicer string representation of a class. When you print a class or turn a class into a string, `__repr__` is called behind the scenes.
+
+`__repr__` is what allows a list, for example, to be printed as `[]`.
+
+```python
+class Human:
+
+    def __init__(self, name="somebody"):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+fella = Human()
+print(fella) # "somebody"
+colt = Human(name="Colt Steele")
+print(f"{colt} is totally rad (probably)")
+# "Colt Steele is totally rad (probably)"
+```
+
+There are also several other dunders to return classes in string formats (`__str__`, `__format__`) and choosing one is a bit complicated.
