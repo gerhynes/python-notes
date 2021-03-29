@@ -1898,3 +1898,51 @@ class Cat(Animal):
 blue = Cat("Blue", "Scottish Fold", "String")
 blue.play() # Blue plays with String
 ```
+
+### Multiple Inheritance
+
+A class can inherit from more than one parent class. It's not super common and a bit controversial.
+
+```python
+class Aquatic:
+    def __init__(self, name):
+        self.name = name
+
+    def swim(self):
+        return f"{self.name} is swimming"
+
+    def greet(self):
+        return f"I am {self.name} of the sea"
+
+class Ambulatory:
+    def __init__(self, name):
+        self.name = name
+
+    def walk(self):
+        return f"{self.name} is walking"
+
+    def greet(self):
+        return f"I am {self.name} of the land"
+
+class Penguin(Aquatic, Ambulatory):
+    def __init__(self, name):
+        super().__init__(name=name)
+
+jaws = Aquatic("Jaws")
+lassie = Ambulatory("Lassie")
+captain_cook = Penguin("Captain Cook")
+```
+
+`Penguin` inherits from both `Aquatic` and `Ambulatory`, so instances of Penguin can call both the walk and swim methods.
+
+`Penguin` calls `Aquatic.greet()` instead of `Ambulatory.greet()`.
+
+### Method Resolution Order
+
+Whenever you create a class, Python automatically sets a Method Resolution Order (MRO) for that class, which is the order in which Python will look for methods on instances of that class.
+
+You can programmatically reference the MRO three ways:
+
+- `__mro__` attribute on the class
+- use the `mro()` method on the class
+- use the built-in `help(cls)` method
