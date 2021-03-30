@@ -1946,3 +1946,77 @@ You can programmatically reference the MRO three ways:
 - `__mro__` attribute on the class
 - use the `mro()` method on the class
 - use the built-in `help(cls)` method
+
+### Polymorphism
+
+A key proinciple of OOP is the idea of polymorphism - an object can take on many forms.
+
+Two practical applications of polymorphism are:
+
+1. The same class method works in a similar way for different classes.
+
+A common implementation of this is to have a method in a parent class that is overridden by a subclass (**method overriding**).
+
+Each subclass will have a different implementation of the method.
+
+```python
+Cat.speak()
+Dog.speak()
+Human.speak()
+```
+
+2. The same operation works for different kinds of objects.
+
+Python classes have special, "magic", methods, that are dunders. These methods have special names that give instructions to Python for how to deal with objects.
+
+```python
+len(sample_list)
+len(sample_tuple)
+len(sample_string)
+```
+
+### Special `__magic__` methods
+
+In the operation `8 + 2` Python knows what to do because the `+` operator is shorthand for a special method `__add__()` that gets called on the first operand.
+
+If the first (left) operand is an instance of `int`, `__add__()` does mathematical addition. If it's a `string`, it does concatenation.
+
+You can delcare special methods on your own classes to mimic the behaviour of built-in objects.
+
+```python
+class Human:
+    def __init__(self, height):
+        self.height = height # in cms
+
+    def __len__(self):
+        return self.height
+
+colt = Human(180)
+len(colt) # 180
+```
+
+A common use case for special methods is to make classes "look pretty" in strings.
+
+By default classes are ugly when printed.
+
+```python
+class Human:
+    pass
+
+colt = Human()
+print(colt) # <__main__.Human at 0x1062b8400>
+```
+
+The `__repr__` method is one of several ways to provide a nicer string representation.
+
+```python
+class Human:
+    def __init__(self, name="somebody"):
+        self.name = name
+
+    def __repr__(self):
+        return self.name
+
+yer_man = Human()
+print(yer_man) # "somebody"
+```
