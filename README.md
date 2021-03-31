@@ -2023,6 +2023,8 @@ print(yer_man) # "somebody"
 
 ## Iterators and Generators
 
+### Iterators
+
 An Iterator is an object that can be iterated upon. It returns data, one element at a time, when `next()` is called on it.
 
 An Iterable is an object whcih will return an Iterator when `iter()` is called on it.
@@ -2074,4 +2076,24 @@ class Counter:
 
 for n in Counter(50,55):
     print(n)
+```
+
+### Generators
+
+Generators are a subset of iterators.
+
+They can be created with generator functions using the `yield` function or with generator expressions.
+
+| Functions                              | Generator Functions               |
+| -------------------------------------- | --------------------------------- |
+| uses `return`                          | uses `yield`                      |
+| returns once                           | can yield multiple times          |
+| when invoked, returns the return value | When invoked, returns a generator |
+
+```python
+def count_up_to(max):
+    count = 1
+    while count <= max:
+        yield count
+        count += 1
 ```
