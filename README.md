@@ -2054,3 +2054,24 @@ my_for("hello", print)
 my_for([1, 2, 3], sum)
 my_for([1, 2, 3], square)
 ```
+
+```python
+class Counter:
+    def __init__(self, low, high):
+        self.current = low
+        self.high = high
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current < self.high:
+            num = self.current
+            self.current += 1
+            return num
+        raise StopIteration
+
+
+for n in Counter(50,55):
+    print(n)
+```
