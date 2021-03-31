@@ -2020,3 +2020,37 @@ class Human:
 yer_man = Human()
 print(yer_man) # "somebody"
 ```
+
+## Iterators and Generators
+
+An Iterator is an object that can be iterated upon. It returns data, one element at a time, when `next()` is called on it.
+
+An Iterable is an object whcih will return an Iterator when `iter()` is called on it.
+
+`"hello"` is not an iterator, but it is an iterable.
+
+`iter("hello")` returns an iterator.
+
+When you call a `for` loop on a string, for example, the `for` loop calls `iter()` on it.
+
+When `next()` is called on an iterator, the iterator returns the next item. It keeps doing so until it raises a `StopIteration` error.
+
+```python
+# Custom for loop
+def my_for(iterable, func):
+    iterator = iter(iterable)
+    while True:
+        try:
+            item = next(iterator)
+        except StopIteration:
+            break
+        else:
+            func(item)
+
+def square(x):
+    print(x*x)
+
+my_for("hello", print)
+my_for([1, 2, 3], sum)
+my_for([1, 2, 3], square)
+```
