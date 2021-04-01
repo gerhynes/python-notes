@@ -2097,3 +2097,39 @@ def count_up_to(max):
         yield count
         count += 1
 ```
+
+```python
+def current_beat():
+    nums = (1,2,3,4)
+    i = 0
+    while True:
+        if i >= len(nums): i = 0
+        yield nums[i]
+        i += 1
+```
+
+Generators can be much more memory efficient than using functions with lists, especially when dealing with large sequences.
+
+```python
+def fib_list(max):
+    nums = []
+    a, b = 0, 1
+    while len(nums) < max:
+        nums.append(b)
+        a, b = b, a+b
+    return nums
+
+fib_list(1000000) # 503 MB
+
+def fib_gen(max):
+    x = 0
+    y = 1
+    count = 0
+    while count < max:
+        x, y = y, x + y
+        yield x
+        count += 1
+
+for n in fib_gen(1000000):
+    print(n) # 6.7 MB
+```
