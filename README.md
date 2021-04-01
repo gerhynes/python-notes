@@ -2133,3 +2133,25 @@ def fib_gen(max):
 for n in fib_gen(1000000):
     print(n) # 6.7 MB
 ```
+
+### Generator Expressions
+
+Generator expressions are a concise syntax for creating generators, comparable to list comprehensions for lists.
+
+```python
+# Generator function
+def nums():
+    for num in range(1,10):
+        yield num
+
+# Generator Expression
+g = (num for num in range(1,10))
+```
+
+Generator expressions can be much more time efficient than list comprehensions.
+
+```python
+sum(n for n in range(100000000)) # 6.75 seconds
+
+sum([n for n in range(100000000)]) # 10.47 seconds
+```
