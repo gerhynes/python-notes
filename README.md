@@ -2186,7 +2186,7 @@ Decorated functions can accept arguments using `*args` and `**kwargs`.
 ```python
 def my_decorator(fn):
     def wrapper(*args, **kwargs):
-        # do some stuff with *args and **kwargs
+        # do some stuff with fn(*args, **kwargs)
         pass
     return wrapper
 ```
@@ -2204,4 +2204,37 @@ def greet(name):
 @shout
 def order(main, side):
     return f"Hi, I'd like the {main} with a side of {side}, please"
+```
+
+### Preserving Metadata
+
+By default, decorated functions don't maintain their metadata. But Python has a module `functools` with a function `wraps` which preserves a function's metadata when it is decorated.
+
+```python
+from functools import wraps
+
+def my_decorator(fn):
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        # do some stuff with fn(*args, **kwargs)
+        pass
+    return wrapper
+```
+
+```python
+from functools import wraps
+
+def log_function_data(fn):
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        """I AM A WRAPPER FUNCTION"""
+        print(f"You are about to call {fn.__name__}")
+        print(f"Here's the documentation: {fn.__doc__}")
+        return fn(*args, **kwargs)
+    return wrapper
+
+@log_function_data
+def add(x,y):
+    """Adds two numbers together"""
+    return x + y
 ```
