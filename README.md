@@ -2155,3 +2155,53 @@ sum(n for n in range(100000000)) # 6.75 seconds
 
 sum([n for n in range(100000000)]) # 10.47 seconds
 ```
+
+## Decorators
+
+Higher order functions can accept other functions as arguments and return functions.
+
+Decorators are functions that wrap other functions, changing their behaviour.
+
+They have their own syntax, using `@`.
+
+```python
+def be_polite(fn):
+    def wrapper():
+        print("What a pleasure to meet you!")
+        fn()
+        print("Have a great day")
+    return wrapper
+
+@be_polite
+def greet():
+    print("My name is Matt")
+
+greet() # same as greet = be_polite(greet)
+```
+
+### Decorator Pattern
+
+Decorated functions can accept arguments using `*args` and `**kwargs`.
+
+```python
+def my_decorator(fn):
+    def wrapper(*args, **kwargs):
+        # do some stuff with *args and **kwargs
+        pass
+    return wrapper
+```
+
+```python
+def shout(fn):
+    def wrapper(*args, **kwargs):
+        return fn(*args, **kwargs*).upper()
+    return wrapper
+
+@shout
+def greet(name):
+    return f"Hi, I'm {name}"
+
+@shout
+def order(main, side):
+    return f"Hi, I'd like the {main} with a side of {side}, please"
+```
