@@ -2322,3 +2322,38 @@ A mantra of TDD is "red, green, refactor".
 1. Write a test that fails
 2. Write the minimal amount of code to make the test pass
 3. Clean up the code, while ensuring that tests still pass
+
+### Assertions
+
+You can make simple assertion statements with the `assert` keyword. `assert` accepts an expression. It returns `None` if the expression is truthy and it raises an `AssertionError` if the expression is falsy. `assert` accepts an optional erro message as a second argument.
+
+```python
+def add_positive_numbers(x, y):
+    assert x > 0 and y > 0, "Both numbers must be positive!"
+    return x + y
+```
+
+If a Python file is run with the `-O` flag, assertions will not be evaluated.
+
+There are better options available for testing.
+
+### doctests
+
+You can write tests for functions inside the docstring. But you have to write the code as if it's in a REPL. The syntax is quite finnicky, it clutters up your functions, tests can be brittle, and it lacks many of the features of larger testing tools.
+
+```python
+def add(a, b):
+    """
+    >>> add(2,3)
+    5
+    >>> add(100,200)
+    300
+    """
+    return a + b
+```
+
+To run doctests, use:
+
+```
+python3 -m doctest -v name_of_file.py
+```
