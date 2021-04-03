@@ -2357,3 +2357,57 @@ To run doctests, use:
 ```
 python3 -m doctest -v name_of_file.py
 ```
+
+### unittest
+
+Unit testing is the idea of testing the smallest parts of an application in isolation.
+
+Good candidates for unit testing are individual classes, modules, or functions.
+
+Bad candidates for unit testing would be an entire application or dependencies across several classes or modules.
+
+Python comes with a built-in module called `unittest` You write unit tests as classes that inherit from `unittest.TestCase`. This inheritance gives you access to many assertion helpers that let you test the behaviour of your functions.
+
+You run tests by calling `unittest.main()`.
+
+```python
+import unittest
+from activities import eat, nap
+
+class ActivityTest(unittest.TestCase):
+    def test_eat_healthy(self):
+        """eat should have a positive message for healthy eating"""
+        self.assertEqual(
+            eat("broccoli", is_healthy=True),
+            "I'm eating broccoli, because my body is a temple"
+        )
+    def test_eat_unhealthy(self):
+        """eat should indicate you've given up for unhealthy eating"""
+        self.assertEqual(
+            eat("pizza", is_healthy=False),
+            "I'm eating pizza, because YOLO"
+        )
+    def test_short_nap(self):
+        """short naps should be refreshing"""
+        self.assertEqual(
+            nap(1),
+            "I'm feeling refreshed after my 1 hour nap"
+        )
+    def test_long_nap(self):
+        """long naps should be discouraging"""
+        self.assertEqual(
+            nap(3),
+            "Ugh, I overslept. I didn't mean to nap for 3 hours"
+        )
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+You can add comments to tests to make them more informative.
+
+To see comments, run
+
+```
+python3 name_of_test_file.py -v
+```
