@@ -2238,3 +2238,71 @@ def add(x,y):
     """Adds two numbers together"""
     return x + y
 ```
+
+Decorators can be used to enforce restrictions on arguments.
+
+```python
+from functools import wraps
+
+def ensure_no_kwargs(fn):
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if kwargs
+            raise ValueError("No kwargs allowed")
+        return fn(*args, **kwargs)
+    return wrapper
+
+@ensure_no_kwargs
+def greet(name):
+    print(f"Hi there, {name}")
+
+greet("Ali") # "Hi there, Ali"
+greet(name="Ali") # ValueError
+```
+
+Decorators can accept arguments and ensure that an argument is a specific value.
+
+```python
+from functools import wraps
+
+def ensure_first_arg_is(val):
+    def inner(fn):
+        @wraps(fn)
+        def wrapper(*args, **kwargs):
+            if args and args[0] != val:
+                return f"First arg needs to be {val}"
+            return fn(*args, **kwargs)
+        return wrapper
+    return inner
+
+@ensure_first_arg_is(10)
+def add_to_ten(num1, num2):
+    return num1 + num2
+
+print(add_to_ten(10,22)) # 12
+print(add_to_ten(1,2)) # "First arg needs to be 10"
+```
+
+You can also use a decorator to enforce types.
+
+```python
+from functools import wraps
+
+def enforce(*types):
+    def decorator(f):
+        def new_func(*args, **kwargs):
+            # convert args into something mutable
+            newargs = []
+            for (a,t) in zip (args, types):
+                newargs.append(t(a))
+            return f(*newargs, **kwargs)
+        return new_func
+    return decorator
+
+@enforce(str, int)
+def repeat_msg(msg, times):
+    for time in range(times):
+        print(msg)
+
+repeat_msg("hello", "3")
+```
