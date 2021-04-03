@@ -2306,3 +2306,19 @@ def repeat_msg(msg, times):
 
 repeat_msg("hello", "3")
 ```
+
+## Testing
+
+Writing tests reduces bugs in existing code, ensures that bugs stay fixed, and ensures that new features don't break old ones, also passing tests is satisfying.
+
+With Test Driven Development:
+
+- development begins by writing tests
+- once tests are written, write code to make the tests pass
+- once tests pass, a feature is considered complete.
+
+A mantra of TDD is "red, green, refactor".
+
+1. Write a test that fails
+2. Write the minimal amount of code to make the test pass
+3. Clean up the code, while ensuring that tests still pass
