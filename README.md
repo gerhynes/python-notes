@@ -2411,3 +2411,25 @@ To see comments, run
 ```
 python3 name_of_test_file.py -v
 ```
+
+### Common Assertions
+
+- `self.assertEqual(x,y)`
+- `self.assertNotEqual(x,y)`
+- `self.assertTrue(x)`
+- `self.assertFalse(x)`
+- `self.assertIsNone(x)`
+- `self.assertIsNotNone(x)`
+
+### Testing for errors
+
+When testing for errors, `self.assertRaises` lets you test for a specific type of error.
+
+```python
+class SomeTests(unittest.TestCase):
+    def testing_for_errors(self):
+        """testing for an error"""
+        with self.assertRaises(IndexError):
+            l = [1,2,3]
+            l[100]
+```
