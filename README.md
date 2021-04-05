@@ -2464,3 +2464,32 @@ class SomeTests(unittest.TestCase):
         # do teardown here
         pass
 ```
+
+## File I/O
+
+You can read a file by passing the file to the `open` function.
+
+`open` returns a file object.
+
+You can then read the file object with the `read` method.
+
+```python
+file = open("story.txt")
+file.read()
+```
+
+Python reads files using a cursor (like the one you see when typing). After a file is read, the cursor is at the end of the file. If you call read again on the same file, you'll get an empty string.
+
+You use the `seek` method to move the cursor.
+
+`file.seek(0)` will put the cursor at the start of the file.
+
+The `readline` method will read the specified line and stop at the newline character.
+
+The `readlines` method returns a list of lines.
+
+You can close a file with the `close` method.
+
+You can check if a file is closed using the `closed` attribute.
+
+Once closed, a file can't be read again until you reopen it. Always close files, it frees up system resources.
