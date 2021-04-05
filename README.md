@@ -2493,3 +2493,43 @@ You can close a file with the `close` method.
 You can check if a file is closed using the `closed` attribute.
 
 Once closed, a file can't be read again until you reopen it. Always close files, it frees up system resources.
+
+### `with` Blocks
+
+The `with` statement gives you an alternative syntax for file I/O. Once it's run, the file is automatically closed. Behind the scenes, `__enter__()` and `__exit__()` are called.
+
+```python
+file = open("story.txt")
+file.read()
+file.close()
+file.closed # True
+```
+
+```python
+with open("story.txt") as file:
+    file.read()
+
+file.closed # True
+```
+
+### Writing to Text Files
+
+You can also use `open` to write to a file.
+
+You need to specify the `w` flag as the second argument.
+
+You don't need to have an existing file to write to. Writing to a non-existing file will create it.
+
+```python
+with open("haiku.txt", "w") as file:
+    file.write("Writing files is great\n")
+    file.write("Here is another line of text\n")
+    file.write("Closing now, goodbye!\n")
+```
+
+### File Modes
+
+- r - Read a file (no writing) - this is the default
+- w - Write to a file (previous content is removed)
+- a - Append to the end of a file (previous content is not removed)
+- r+ - Read and write to a file (writes based on cursor - starts at beginning, only works with existing files)
