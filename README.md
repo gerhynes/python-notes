@@ -2576,3 +2576,29 @@ with open "example.csv" as file:
     for row in csv_reader:
         print(row) # each row is a list
 ```
+
+### Writing CSV Files
+
+`writer` - creates a writer object for writing to CSV
+`writerow` - method on a writer to write a row to the CSV
+
+```python
+# using lists
+from csv import writer
+with open("fighters.csv", "w") as file:
+    csv_writer = writer(file)
+    csv_writer.writerow(["Character", "Move"])
+    csv_writer.writerow(["Ryu", "Hadouken"])
+```
+
+You can use nested with statements.
+
+```python
+from csv import reader, writer
+with open("fighters.csv") as file:
+    csv_reader = reader(file)
+    with open("screaming_fighters.csv", "w") as file:
+        csv_writer = writer(file)
+        for fighter in csv_reader:
+            csv_writer.writerow([s.upper() for s in fighter])
+```
