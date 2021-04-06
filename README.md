@@ -2533,3 +2533,46 @@ with open("haiku.txt", "w") as file:
 - w - Write to a file (previous content is removed)
 - a - Append to the end of a file (previous content is not removed)
 - r+ - Read and write to a file (writes based on cursor - starts at beginning, only works with existing files)
+
+## Working with CSV
+
+CSV files are a common file format for tabular data. The first row contains the headers, setting up what the data is.
+
+You can read CSV files like any other file, but don't do this.
+
+Python has a built-in CSV module to read/write CSVs more easily.
+
+`reader` lets you iterate over CSV rows as lists.
+
+```python
+from csv import reader
+with open "fighters.csv" as file:
+    csv_reader = reader(file)
+    next(csv_reader) # skip headers row
+    for fighter in csv_reader:
+        print(fighter) # each row is a list
+        print(f"{fighter[0]} is from {fighter[1]}")
+```
+
+`DictReader` lets you iterate over CSV rows as OrderedDicts.
+
+```python
+from csv import DictReader
+with open "fighters.csv" as file:
+    csv_reader = DictReader(file)
+    for row in csv_reader:
+        print(row) # each row is an OrderedDict
+        print(row["Name"])
+```
+
+### Delimiters
+
+Readers accept a delimiter kwarg in case your data isn't seperated by commas.
+
+```python
+from csv import reader
+with open "example.csv" as file:
+    csv_reader = reader(file, delimiter="|")
+    for row in csv_reader:
+        print(row) # each row is a list
+```
