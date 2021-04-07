@@ -2625,3 +2625,83 @@ with open("example.csv", "w") as file:
         "Move": "Hadouken"
     })
 ```
+
+### Pickling
+
+`pickle` is a module that serializes data which you can deserialize and access later.
+
+The data is not human readable while stored.
+
+```python
+import pickle
+class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+
+    def __repr__(self):
+        return f"{self.name} is a {self.species}"
+
+    def make_sound(self, sound):
+        print(f"this animal says {sound}")
+
+
+class Cat(Animal):
+    def __init__(self, name, breed, toy):
+        super().__init__(name, species="Cat") # Call init on parent class
+        self.breed = breed
+        self.toy = toy
+
+    def play(self):
+        print(f"{self.name} plays with {self.toy}")
+
+
+blue = Cat("Blue", "Scottish Fold", "String")
+
+# To pickle an object:
+with open("pets.pickle", "wb") as file:
+    pickle.dump(blue, file)
+
+# To unpickle something:
+with open("pets.pickle", "rb") as file:
+    zombie_blue = pickle.load(file)
+    print(zombie_blue)
+    print(zombie_blue.play())
+```
+
+### Pickling with JSON
+
+JSON, while created to send JavaScript code over the web, is now used across multiple languages.
+
+Python has a built-in `json` module.
+
+`json.dumps` formats a Python object as a string of JSON.
+
+```python
+j = json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
+# ["foo", {"bar": ['baz', null, 1.0, 2]}]
+```
+
+jsonpickle is a library that lets you pickle using JSON, which does take up more space but is readable.
+
+```python
+import jsonpickle
+
+class Cat:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+c = Cat("Charles", "Tabby")
+
+# pickle as JSON
+with open("cat.json", "w") as file:
+    frozen = jsonpickle.encode(c)
+    # {"py/object": "__main__.Cat", "breed": "Tabby", "name": "Charles"}
+    file.write(frozen)
+
+# unpickle from JSON
+ with open("cat.json", "r") as file:
+    contents = file.read()
+    unfrozen = jsonpickle.decode(contents)
+```
