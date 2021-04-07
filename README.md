@@ -2579,11 +2579,12 @@ with open "example.csv" as file:
 
 ### Writing CSV Files
 
+#### Using Lists
+
 `writer` - creates a writer object for writing to CSV
 `writerow` - method on a writer to write a row to the CSV
 
 ```python
-# using lists
 from csv import writer
 with open("fighters.csv", "w") as file:
     csv_writer = writer(file)
@@ -2601,4 +2602,26 @@ with open("fighters.csv") as file:
         csv_writer = writer(file)
         for fighter in csv_reader:
             csv_writer.writerow([s.upper() for s in fighter])
+```
+
+#### Using Dictionaries
+
+`DictWriter` creates a writer object for writign using dictionaries.
+
+`fieldnames` - kwarg for the DictWriter specifying headers
+
+`writeheader` - method on writer to write the header row
+
+`writerow` - method on writer to write a row based on a dictionary
+
+```python
+from csv import DictWriter
+with open("example.csv", "w") as file:
+    headers = ["Character", "Move"]
+    csv_writer = DictWriter(file, fieldnames=headers)
+    csv_writer.writeheader()
+    csv_writer.writerow({
+        "Character": "Ryu",
+        "Move": "Hadouken"
+    })
 ```
