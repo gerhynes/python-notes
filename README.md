@@ -2705,3 +2705,70 @@ with open("cat.json", "w") as file:
     contents = file.read()
     unfrozen = jsonpickle.decode(contents)
 ```
+
+## Web Scraping
+
+Web scraping involves programmatically getting data from a web page.
+
+There are three steps: download, extract data, PROFIT!
+
+Why scrape?
+
+- There's data on a site that you want to store or anaylze.
+- You can't get it by other means (an API)
+- You want to programmatically grab the data (instead of lots of manual copy/pasting)
+
+Is scraping... ok?
+
+- Some websites don't want people scraping them
+- Best practice is to consult the `robots.txt` file
+- If making many requests, time them out
+- If you're too aggressive, your IP can be blocked
+
+### BeautifulSoup
+
+BeautifulSoup lets you navigate through HTML with Python.
+
+BeautifulSoup does not download HTML, you need to use the request module.
+
+`BeautifulSoup(html_string, "html.parser")` - parses HTML
+
+Once parsed, there are several ways to navigate:
+
+- By tag name
+- Using `find` - returns one matching tag
+- Using `find_all` - returns a list of matching tags
+- Using CSS selectors
+
+```python
+from bs4 import BeautifulSoup
+html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>First HTML Page</title>
+</head>
+<body>
+  <div id="first">
+    <h3 data-example="yes">hi</h3>
+    <p>more text.</p>
+  </div>
+  <ol>
+    <li class="special">This list item is special.</li>
+    <li class="special">This list item is also special.</li>
+    <li>This list item is not special.</li>
+  </ol>
+  <div data-example="yes">bye</div>
+</body>
+</html>
+"""
+
+soup = BeautifulSoup(html, "html.parser")
+print(soup.body.div) # first div
+a = soup.find(id="first")
+b = soup.find_all(class_="special")
+c = soup.find_all(attrs={"data-example": "yes"})
+d = soup.select("[data-example]")
+print(d)
+```
