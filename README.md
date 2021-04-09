@@ -2738,7 +2738,7 @@ Once parsed, there are several ways to navigate:
 - By tag name
 - Using `find` - returns one matching tag
 - Using `find_all` - returns a list of matching tags
-- Using CSS selectors
+- Using CSS selectors with `select` - returns a list of matching tags
 
 ```python
 from bs4 import BeautifulSoup
@@ -2767,8 +2767,37 @@ html = """
 soup = BeautifulSoup(html, "html.parser")
 print(soup.body.div) # first div
 a = soup.find(id="first")
-b = soup.find_all(class_="special")
-c = soup.find_all(attrs={"data-example": "yes"})
-d = soup.select("[data-example]")
+b = soup.select("#first")[0] # returns a list
+c = soup.find_all(class_="special")
+d = soup.select(".special")
+e = soup.find_all(attrs={"data-example": "yes"})
+f = soup.select("[data-example]")
 print(d)
 ```
+
+#### Accessing Data in Elements
+
+- `get_text` - method to access the inner text in an element.
+- `name` - method to retrieve the tag's name
+- `attrs` - method to get a dictionary of attributes
+- using square brackets and the name of an attribute - `soup.find("h3")["data-example"]`
+
+### Navigating with BeautifulSoup
+
+Navigating with BeautifulSoup involves finding elements relevant to an element.
+
+Via tags:
+
+- `parent` / `parents`
+- `contents`
+- `next_sibling` / `next_siblings`
+
+Via searching:
+
+- `find_parent` / `find_parents`
+- `find_next_sibling` / `find_next_siblings`
+- `find_previous_sibling` / `find_previous_siblings`
+
+`contents` gives you a list with a tag's contents (including newline characters!).
+
+`soup.body.contents[1].next_sibling.next_sibling`
