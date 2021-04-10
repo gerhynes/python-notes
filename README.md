@@ -2798,6 +2798,10 @@ Via searching:
 - `find_next_sibling` / `find_next_siblings`
 - `find_previous_sibling` / `find_previous_siblings`
 
-`contents` gives you a list with a tag's contents (including newline characters!).
+Using tags includes newline characters, so you need to remeber to skip over them.
+
+`contents`, gives you a list with a tag's contents, including newline characters.
 
 `soup.body.contents[1].next_sibling.next_sibling`
+
+The searching methods, such as `find_next_sibling`, skip newline characters.
