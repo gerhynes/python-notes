@@ -25,7 +25,7 @@ def scrape_quotes():
         next_btn = soup.find(class_="next")
         url = next_btn.find("a")["href"] if next_btn else None
         # sleep(3) # wait between scraping pages
-        return all_quotes
+    return all_quotes
 
 def start_game(quotes):
     quote = choice(quotes)

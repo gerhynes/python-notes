@@ -14,7 +14,6 @@ def scrape_quotes():
         print(f"Now scraping {BASE_URL}{url}")
         soup = BeautifulSoup(res.text, "html.parser")
         quotes = soup.find_all(class_="quote")
-
         for quote in quotes:
             all_quotes.append({
                 "text": quote.find(class_="text").get_text(),
@@ -24,7 +23,7 @@ def scrape_quotes():
         next_btn = soup.find(class_="next")
         url = next_btn.find("a")["href"] if next_btn else None
         #sleep(1) # wait between scraping pages
-        return all_quotes
+    return all_quotes
 
 def write_quotes(quotes):
     with open("quotes.csv", "w") as file:
