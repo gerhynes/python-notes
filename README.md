@@ -2835,3 +2835,29 @@ To run Scrapy, call it and pass it the Python file to run and the destination fi
 ```
 scrapy runspider -o books.csv book_scraper.py
 ```
+
+## Regular Expressions
+
+Regular expressions (regexes) are a way of describing patterns within strings.
+
+For example, if you want to check that an email is in a valid email format, you need to check that it:
+
+- starts with one or more letters, numbers, +, \_,-,.
+- a single @ sign
+- one or more letters, numbers, or -
+- a single dot
+- ends with one or more letters, numbers, -, or .
+
+Instead of writing several conditional statements you can use a regex.
+
+```
+(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)
+```
+
+Potential use cases include:
+
+- credit card number validating
+- phone number validating
+- advanced find/replace in text
+- formatting text/output
+- syntax highlighting
