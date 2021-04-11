@@ -2805,3 +2805,33 @@ Using tags includes newline characters, so you need to remeber to skip over them
 `soup.body.contents[1].next_sibling.next_sibling`
 
 The searching methods, such as `find_next_sibling`, skip newline characters.
+
+### Web Scraping with Scrapy
+
+Scrapy is a Python framework for web crawling and web scraping, used to crawl websites and extract structured data from their pages.
+
+It operates like BeautifulSoup, parsing HTML for data, even though it has a different syntax.
+
+```python
+import scrapy
+
+class BookSpider(scrapy.Spider):
+    name = "bookspider"
+    start_urls = ["https://books.toscrape.com"]
+
+    def parse(self, response):
+        for article in response.css("article.product_pod"):
+            yield {
+                "price": article.css(".price_color::text").extract_first(),
+                "title": article.css("h3 > a::attr(title)").extract_first()
+            }
+            next = response.css(".next > a::attr(href)").extract_first()
+            if next:
+                yield response.follow(next, self.parse)
+```
+
+To run Scrapy, call it and pass it the Python file to run and the destination file to save the data to.
+
+```
+scrapy runspider -o books.csv book_scraper.py
+```
