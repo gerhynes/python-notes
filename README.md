@@ -2885,12 +2885,26 @@ You can create a group of acceptable values using `[]`, for example `[a-zA-Z0-9]
 
 Inside `[]` `^` means not, rather than starts with. So `[^@$]` means any character that is not @ or $.
 
-| Character | Sets boundary           |
-| --------- | ----------------------- |
-| ^         | start of string or line |
-| $         | end of string or line   |
-| \b        | word boundary           |
+| Character | Sets boundary                    |
+| --------- | -------------------------------- |
+| ^         | start of string or line          |
+| $         | end of string or line            |
+| \b        | word boundary (space or newline) |
 
 `|` works as logical or. For example `\(\d{3}\)|\d{3}` matches three digits with or without parens.
 
 `()` groups characters. `(\(\d{3}\)|\d{3}) \d{3} \d{4}`
+
+### Using Regex with Python
+
+Python has a built-in `re` module for working with regexes.
+
+With `re` you create a regex object and then use its methods.
+
+```python
+import re
+
+pattern = re.compile(r'\d{3} \d{3}-\d{4}')
+
+res = pattern.search("Call me at 415 555-4242")
+```
