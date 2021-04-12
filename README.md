@@ -2861,3 +2861,36 @@ Potential use cases include:
 - advanced find/replace in text
 - formatting text/output
 - syntax highlighting
+
+| Character | Matches                           |
+| --------- | --------------------------------- |
+| \d        | digit 0-9                         |
+| \w        | letter, digit or underscore       |
+| \s        | whitespace character              |
+| \D        | not a digit                       |
+| \W        | not a letter, digit or underscore |
+| \S        | not a whitespace character        |
+| .         | any character except line break   |
+
+| Quantifier | Matches                        |
+| ---------- | ------------------------------ |
+| +          | one or more                    |
+| {3}        | exactly x times. {3} - 3 times |
+| {3,5}      | Three to five times            |
+| {4,}       | Four or more times             |
+| \*         | zero or more times             |
+| ?          | once or none (optional         |
+
+You can create a group of acceptable values using `[]`, for example `[a-zA-Z0-9]`.
+
+Inside `[]` `^` means not, rather than starts with. So `[^@$]` means any character that is not @ or $.
+
+| Character | Sets boundary           |
+| --------- | ----------------------- |
+| ^         | start of string or line |
+| $         | end of string or line   |
+| \b        | word boundary           |
+
+`|` works as logical or. For example `\(\d{3}\)|\d{3}` matches three digits with or without parens.
+
+`()` groups characters. `(\(\d{3}\)|\d{3}) \d{3} \d{4}`
