@@ -2908,3 +2908,33 @@ pattern = re.compile(r'\d{3} \d{3}-\d{4}')
 
 res = pattern.search("Call me at 415 555-4242")
 ```
+
+### Parsing urls
+
+A regex to parse a url looks something like this. You can use parens to group parts of the regex.
+
+```python
+import re
+
+url_regex = re.compile(r'(https?)://(www\.[A-za-z-]{2,256}\.[a-z]{2,6})([-a-zA-Z0-9@:%_\+.~#?&//=]*)')
+
+match = url_regex.search("https://www.my-website.com/bio?data=blah&dog=yes")
+
+print(f"Protocol: {match.group(1)}")
+print(f"Domain: {match.group(2)}")
+print(f"Everything Else: {match.group(3)}")
+print(match.groups())
+print(match.group())
+```
+
+If you call `group`, or `group(0)` on the match you will get the entire url.
+
+`group(1)`, `group(2)`, `group(3)` will give you the first, second and third item.
+
+### Symbolic group names
+
+In a regex, you can give groups names to represent them.
+
+```python
+name_regex = re.compile(r'^(Mr\.|Mrs\.|Ms\.|Mdme\.) (?P<first>[A-Za-z]+) (?P<last>[A-Za-z]+)$')
+```
