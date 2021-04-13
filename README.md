@@ -2911,7 +2911,7 @@ res = pattern.search("Call me at 415 555-4242")
 
 ### Parsing urls
 
-A regex to parse a url looks something like this. You can use parens to group parts of the regex.
+A regex to parse a url looks something like this. You can use parens to group parts of the regex into capture groups.
 
 ```python
 import re
@@ -2929,7 +2929,9 @@ print(match.group())
 
 If you call `group`, or `group(0)` on the match you will get the entire url.
 
-`group(1)`, `group(2)`, `group(3)` will give you the first, second and third item.
+`group(1)`, `group(2)`, `group(3)` will give you the first, second and third capture group.
+
+`groups()` will give you a tuple of the capture groups.
 
 ### Symbolic group names
 
@@ -2937,4 +2939,26 @@ In a regex, you can give groups names to represent them.
 
 ```python
 name_regex = re.compile(r'^(Mr\.|Mrs\.|Ms\.|Mdme\.) (?P<first>[A-Za-z]+) (?P<last>[A-Za-z]+)$')
+```
+
+### Compilation Flags
+
+Flags let you modify how regexes work.
+
+For example, `re.IGNORECASE` `re.I` lets you do case-insensitive searches.
+
+The verbose flag (`re.VERBOSE` or `re.X`) lets you put a regex on multiple lines and comment it.
+
+You can combine flags using `|`.
+
+```python
+email_regex = re.compile(r"^([a-z0-9_\.-])@([0-9a-z\.-]+)\.([a-z\.]{2,6})$")
+
+verbose_email_regex = re.compile(r"""
+    ^([a-z0-9_\.-])     # username
+    @                   # single @
+    ([0-9a-z\.-]+)      # email provider
+    \.                  # single .
+    ([a-z\.]{2,6})$     # top level domain
+""", re.VERBOSE | re.IGNORECASE)
 ```
