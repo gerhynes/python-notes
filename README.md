@@ -2971,7 +2971,7 @@ The `sub` method takes a pattern and what you want to replce that pattern with.
 
 ```python
 import re
- 
+
 def censor(input):
     pattern = re.compile(r'\bfrack\w*\b', re.IGNORECASE)
     return pattern.sub("CENSORED", input)
@@ -2989,3 +2989,21 @@ result = pattern.sub("\g<1> \g<2>", text)
 
 # Last night Mrs. P and Ms. D murdered Mr. B.
 ```
+
+## Python and SQL
+
+SQL is popular database choice with Python.
+
+With SQLite, each value is one of five datatypes.
+
+- NULL - a NULL value.
+
+- INTEGER - a signed integer, stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of the value.
+
+- REAL - a floating point value, stored as an 8-byte IEEE floating point number.
+
+- TEXT - a text string, stored using the database encoding (UTF-8, UTF-16BE or UTF-16LE).
+
+- BLOB - a blob of data, stored exactly as it was input.
+
+By default Sqlite conects to a transient in-memory database. To save it to a file, open/create a file with `.open FILENAME` or `sqlite3 FILENAME`.
