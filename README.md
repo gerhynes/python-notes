@@ -2962,3 +2962,30 @@ verbose_email_regex = re.compile(r"""
     ([a-z\.]{2,6})$     # top level domain
 """, re.VERBOSE | re.IGNORECASE)
 ```
+
+### Substitutions
+
+Find and replace is a common use-case for regular expressions.
+
+The `sub` method takes a pattern and what you want to replce that pattern with.
+
+```python
+import re
+ 
+def censor(input):
+    pattern = re.compile(r'\bfrack\w*\b', re.IGNORECASE)
+    return pattern.sub("CENSORED", input)
+```
+
+You can select capture groups using the syntax `\g<>` and the group number.
+
+```python
+import re
+
+text = "Last night Mrs. Peach and Ms. Daisy murdered Mr. Bowser"
+
+pattern = re.compile(r'(Mr\.|Mrs\.|Ms\.) ([a-z])[a-z]+', re.I)
+result = pattern.sub("\g<1> \g<2>", text)
+
+# Last night Mrs. P and Ms. D murdered Mr. B.
+```
