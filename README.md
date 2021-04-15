@@ -3007,3 +3007,19 @@ With SQLite, each value is one of five datatypes.
 - BLOB - a blob of data, stored exactly as it was input.
 
 By default Sqlite conects to a transient in-memory database. To save it to a file, open/create a file with `.open FILENAME` or `sqlite3 FILENAME`.
+
+Sqlite follows the same syntax as other SQL databases.
+
+`CREATE TABLE table_name (column_name datatype);`
+
+`INSERT INTO table_name (column_names) VALUES (values);`
+
+You can run a SQL file using `.read file_name.sql` inside Sqlite.
+
+`SELECT * FROM table_name;`
+
+`SELECT * from table_name WHERE column_name IS value;`
+
+`SELECT * from table_name WHERE column_name IS NOT value AND column_name2 IS NOT value2;`
+
+`SELECT * FROM table_name WHERE column_name LIKE %value%`;
