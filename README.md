@@ -3023,3 +3023,14 @@ You can run a SQL file using `.read file_name.sql` inside Sqlite.
 `SELECT * from table_name WHERE column_name IS NOT value AND column_name2 IS NOT value2;`
 
 `SELECT * FROM table_name WHERE column_name LIKE %value%`;
+
+### Connecting to a Database with Python
+
+Python comes with a built-in library to communicate with Sqlite.
+
+```python
+import sqlite3
+conn = sqlite3.connect("example.db")
+```
+
+
