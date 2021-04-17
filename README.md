@@ -3032,7 +3032,7 @@ First you create a connection to the database (if the database doesn't exist it'
 
 Create a cursor (a temporary workspace for SQL commands).
 
-USe the cursor to execute your SQL command, such as creating or inserting into a table.
+Use the cursor to execute your SQL command, such as creating or inserting into a table.
 
 Commit the changes.
 
@@ -3053,5 +3053,91 @@ c.execute("CREATE TABLE friends (first_name TEXT, last_name TEXT, closeness INTE
 conn.commit()
 
 # Close connection
+conn.close()
+```
+
+You can create a query before you execute it.
+
+```python
+insert_query = "INSERT INTO friends VALUES ('Merry', 'Lewis', 7);"
+c.execute(insert_query)
+```
+
+You can interpolate variables into your query using `?` and a tuple. This handles quotes and sanitizing the data.
+
+```python
+data = ("Mary", "Reed", 9)
+query = "INSERT INTO friends VALUES (?,?,?);"
+c.execute(query, data)
+```
+
+You can carry out bulk inserts using `executemany`.
+
+```python
+people = [
+    ("Roald", "Amundsen", 5),
+    ("Rosa", "Parks", 9),
+    ("Henry", "Hudson", 5),
+    ("Neil", "Armstrong", 7),
+    ("Daniel", "Bruhl", 3)
+]
+
+c.executemany("INSERT INTO friends VALUES (?,?,?)", people)
+```
+
+If you want to do something with each item along with inserting it, use a loop.
+
+```python
+for person in people:
+    c.execute("INSERT INTO friends VALUES (?,?,?)", person)
+    print("Inserting now")
+```
+
+### Selecting with Python
+
+When you select with Python, you can iterate over the cursor object, use `c.fetchall()` to get back a list containing the results or `c.fetchone()` to get just the first result.
+
+```python
+import sqlite3
+conn = sqlite3.connect("my_friends.db")
+c = conn.cursor()
+
+c.execute("SELECT * FROM friends WHERE closeness > 5 ORDER BY closeness;")
+
+c.fetchall()
+
+conn.commit()
+conn.close()
+```
+
+### SQL Injection
+
+If you don't sanitize your inputs, a user could write SQl into their input and manipulate the database.
+
+In the example below, if a user entered `' OR 1=1--` the single quote would close the quote, `1=1` would always evaluate to true and `--` would comment out any remaining characters.
+ 
+```python
+import sqlite3
+conn = sqlite3.connect("users.db")
+c = conn.cursor()
+
+user_name = input("Please enter your username...")
+password = input("Please enter your password...")
+
+# Bad idea
+# query = f"SELECT * FROM users WHERE username='{user_name}' AND password='{password}' OR 1=1 --'"
+
+# Better idea
+query = "SELECT * FROM users WHERE username=? AND password=?"
+
+c.execute(query, (user_name, password))
+
+result = c.fetchone()
+if(result):
+    print("Welcome back")
+else:
+    print("Failed login")
+
+conn.commit()
 conn.close()
 ```
