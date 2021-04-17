@@ -3028,9 +3028,30 @@ You can run a SQL file using `.read file_name.sql` inside Sqlite.
 
 Python comes with a built-in library to communicate with Sqlite.
 
+First you create a connection to the database (if the database doesn't exist it'll be created).
+
+Create a cursor (a temporary workspace for SQL commands).
+
+USe the cursor to execute your SQL command, such as creating or inserting into a table.
+
+Commit the changes.
+
+Finally, close the connection.
+
 ```python
 import sqlite3
-conn = sqlite3.connect("example.db")
+# Create connection
+conn = sqlite3.connect("my_friends.db")
+
+# Create cursor object
+c = conn.cursor()
+
+# Execute SQL
+c.execute("CREATE TABLE friends (first_name TEXT, last_name TEXT, closeness INTEGER);")
+
+# Commit changes
+conn.commit()
+
+# Close connection
+conn.close()
 ```
-
-

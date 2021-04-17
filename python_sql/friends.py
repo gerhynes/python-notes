@@ -2,16 +2,21 @@ import sqlite3
 conn = sqlite3.connect("my_friends.db")
 # create cursor object
 c = conn.cursor()
-# execute some sql
-# c.execute("CREATE TABLE friends (first_name TEXT, last_name TEXT, closeness INTEGER);")
-# insert_query = "INSERT INTO friends VALUES ('Merry', 'Brandybuck', 7);"
-# form_first = "Dana"
-# query = f"INSERT INTO friends (first_name) VALUES (?)"
-# c.execute(query, (form_first,))
 
-data = ("Steve", "Irwin", 9)
-query = "INSERT INTO friends VALUES (?,?,?)"
-c.execute(query, data)
+people = [
+    ("Roald", "Amundsen", 5),
+    ("Rosa", "Parks", 9),
+    ("Henry", "Hudson", 5),
+    ("Neil", "Armstrong", 7),
+    ("Daniel", "Bruhl", 3)
+]
+
+# c.executemany("INSERT INTO friends VALUES (?,?,?)", people)
+
+for person in people:
+    c.execute("INSERT INTO friends VALUES (?,?,?)", person)
+    print("Inserting now")
+
 # commit changes
 conn.commit()
 conn.close()
