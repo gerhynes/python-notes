@@ -3141,7 +3141,3 @@ else:
 conn.commit()
 conn.close()
 ```
-
-### Scraping to a Database
-
-
