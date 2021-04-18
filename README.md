@@ -3115,7 +3115,7 @@ conn.close()
 If you don't sanitize your inputs, a user could write SQl into their input and manipulate the database.
 
 In the example below, if a user entered `' OR 1=1--` the single quote would close the quote, `1=1` would always evaluate to true and `--` would comment out any remaining characters.
- 
+
 ```python
 import sqlite3
 conn = sqlite3.connect("users.db")
@@ -3141,3 +3141,7 @@ else:
 conn.commit()
 conn.close()
 ```
+
+### Scraping to a Database
+
+
