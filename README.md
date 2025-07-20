@@ -1,6 +1,6 @@
 # Python Notes
 
-Python is one of the most popular and flexible programming langauges, used for everything from basic scripting to machine learning.
+Python is one of the most popular and flexible programming languages, used for everything from basic scripting to machine learning.
 
 ## Numbers
 
@@ -20,7 +20,7 @@ If you do calculations with an `int` and a `float`, Python will return a `float`
 | %      | Modulo           |
 | //     | Integer Division |
 
-In Python division retuns a float by default if applicable: `1/2` returns `0.5`.
+In Python division returns a float by default if applicable: `1/2` returns `0.5`.
 
 Exponentiation raises a number to a given power:
 
@@ -98,7 +98,7 @@ example = 7
 
 ### None
 
-`None` is Python's version of `null`, respresenting nothingness.
+`None` is Python's version of `null`, representing nothingness.
 
 ## Strings
 
@@ -932,7 +932,7 @@ math(2,2, subtract) # 0
 
 #### Keyword Arguments
 
-Keyword arguments let you specify which argument corresponds to whcih parameter if you know that name of the parameters. Order doesn't matter.
+Keyword arguments let you specify which argument corresponds to which parameter if you know that name of the parameters. Order doesn't matter.
 
 This makes functions more flexible and becomes important when passing a dictionary to a function.
 
@@ -1076,6 +1076,18 @@ display_names(names) # Error
 display_names(**names) # "Colt says hello to Rusty"
 ```
 
+### Return Values
+You can use a return statement to return multiple values from a function. These will be implicitly converted into a tuple. Write the return values in a comma separated list in the order you want them returned.
+
+```python
+def get_coords():
+	x = 25.5
+	y = 48.2
+	return x,y
+
+x, y = get_coords()
+```
+
 ## Lambdas and Built-in Functions
 
 ### Lambdas
@@ -1096,6 +1108,9 @@ square2 = lambda num: num * num
 square(9) # 81
 square2(9) # 81
 
+scores = [20, 95, 45, 85, 90, 15, 5, 100, 10]
+high_scores = filter(lambda:score: score >= 90, scores)
+
 button = tk.Button(frame,
     text="CLICK ME",
     fg="red",
@@ -1103,7 +1118,7 @@ button = tk.Button(frame,
 )
 ```
 
-### Map
+### map
 
 `map` is a standard function that accepts at least two arguments, a function and an iterable.
 
@@ -1126,7 +1141,7 @@ first_names = list(map(lambda x: x["first"], names))
 # ["Colt", "Rusty", "Blue"]
 ```
 
-### Filter
+### filter
 
 `filter` allows you to take a collection and filter out desired items.
 
@@ -1152,7 +1167,7 @@ If you can use list comprehension to do the same thing, you probably should.
 [f"Your instructor is {name}" for name in name if len(name) < 5]
 ```
 
-### All
+### all
 
 `all` returns True if all elements of the iterable passed in are truthy (or if the iterable is empty).
 
@@ -1162,7 +1177,7 @@ all([char for char in "eio" if char in "aeiou"]) # True
 all([num for num in [4, 2, 10, 6, 8] if num % 2 == 0]) # True
 ```
 
-### Any
+### any
 
 `any` returns True if any element of the iterable is truthy. If the iterable is empty, it returns False.
 
@@ -1181,7 +1196,7 @@ list_comp = sys.getsizeof([x * 10 for x in range(1000)]) # 9024 bytes
 gen_exp = sys.getsizeof(x * 10 for x in range(1000)) # 88 bytes
 ```
 
-### Sorted
+### sorted
 
 `sorted` returns a new sorted list from the items in an iterable. It doesn't change the original iterable.
 
@@ -1209,7 +1224,7 @@ sorted(users, key=lambda user: user["name"])
 sorted(users, key=lambda user: len(user["tweets"]))
 ```
 
-### Max
+### max
 
 `max` returns the largest item in an iterable or the largest of two or more arguments. You can specify how things are sorted using `key`.
 
@@ -1222,7 +1237,7 @@ max(names) # Tim - alphabetical
 max(names, key=lambda n: len(n)) # Ollivander - length
 ```
 
-### Min
+### min
 
 `min` returns the smallest item in an iterable or the smallest of two or more arguments.
 
@@ -1238,7 +1253,7 @@ song = {
 min(songs, key=lambda song: song["playcount"])
 ```
 
-### Reversed
+### reversed
 
 `reversed` returns a reversed iterator (works with other structures than lists). You'd use it if you were iterating over something in reverse.
 
@@ -1247,7 +1262,7 @@ for x in reversed(range(0, 10)):
     print(x)
 ```
 
-### Len
+### len
 
 `len` returns the length (number of items) of an object. The argument may be a sequence (such as a string, tuple, list or range) or a collection (such as a dictionary or set).
 
@@ -1258,7 +1273,7 @@ len({}) # 0
 
 Each object has a built in method `__len__()` which is called when you use `len`.
 
-### Abs
+### abs
 
 `abs` returns the absolute value of a number. The argument may be an integer or float.
 
@@ -1267,7 +1282,7 @@ abs(-5) # 5
 abs(5.44) # 5.44
 ```
 
-### Sum
+### sum
 
 `sum` takes an iterable and an optional start (by default 0). It returns the sum of the start and the items of the iterable from left to right.
 
@@ -1276,7 +1291,7 @@ sum([1,2,3]) # 6
 sum([1,2,3], 10) # 16
 ```
 
-### Round
+### round
 
 `round` returns a number rounded to `ndigits` after the decimal point. If `ndigits` is ommitted or is `None`, it returns the nearest integer to the input.
 
@@ -1285,7 +1300,7 @@ round(10.2) # 10
 round(1.212121, 2) # 1.21
 ```
 
-### Zip
+### zip
 
 `zip` makes an iterator that aggregates elements from each of the provided iterables.
 
@@ -1375,7 +1390,7 @@ def getKey(d, key):
         return None
 ```
 
-`try` will attempt to do something. If there's a problem `except` will run. I there's not a problem `else` runs. No matter what, `finally` runs.
+`try` will attempt to do something. If there's a problem `except` will run. If there's not a problem `else` runs. No matter what, `finally` runs.
 
 ```python
 while True:
@@ -1480,7 +1495,7 @@ file1.other_fn()
 
 ### External Modules
 
-External modules can be downloaded using pip, Python's package installer.
+External modules can be downloaded using pip, Python's package manager. These modules can be found via [PyPi](https://pypi.org/), the Python package index.
 
 ```python
 python3 -m pip install NAME_OF_PACKAGE
@@ -1503,6 +1518,92 @@ color = input("What color? ")
 print_art(msg, color)
 ```
 
+### Virtual Environments
+
+A Python virtual environment is a folder structure that lets you run an isolated, lightweight Python installation with its own packages. It reproduces the folder structure that a standard Python installation creates while keeping all installed packages isolated to that environment.
+
+The main reasons to use virtual environments is to avoid dependency conflicts and avoid global namespace pollution.
+
+Different projects might require different versions of external libraries. If everything is installed globally, then you cannot work with two versions of the same library.
+
+ Linux and MacOS come with a version of Python pre-installed that the OS uses for internal tasks. Globally installed packages can interfere with this. Also, OS updates can overwrite globally installed packages.
+
+There are multiple ways to create a virtual environment but the `venv` module comes installed with Python.
+
+To create a virtual environment in a directory, run:
+
+```shell
+python3 -m venv <VENV_NAME>
+```
+
+`.venv` is a popular name for virtual environments.
+
+You need to activate the virtual environment to be able to use it.
+
+```shell
+source .venv/bin/activate
+(.venv) $
+```
+
+
+You can then install packages into just the virtual environment.
+
+```shell
+(.venv) $ python3 -m pip install <PACKAGE_NAME>
+```
+
+When you are finished working in a virtual environment  you deactivate it.
+
+```shell
+(.venv) $ deactivate
+$
+```
+
+### Replicating Virtual Environments
+
+If you have a project the locally uses a virtual environment, anyone else trying to work on it on their machine would need to replicate the virtual environment.
+
+You don't commit your virtual environment to version control or ship it with your project.
+
+You can create a list of all the dependencies for a project, and their versions, by creating a `requirements.txt` file.
+
+```shell
+python3 -m pip freeze > requirements.txt
+```
+
+To install all the dependencies from a project that was created in a virtual environment, activate the virtual environment that you want to work in and run:
+
+```shell
+python3 -m pip install -r requirements.txt
+```
+
+When working with virtual environments, if you get a warning that pip is out of date
+
+```shell
+(.venv) $ python -m pip install --upgrade pip
+```
+### Python Standard Library
+
+The Python Standard Library is a collection of modules that comes with every Python installation.
+
+The standard library includes modules for working with different data types, the filesystem, the operating system, networking, GUIs, etc.
+
+```python
+import random
+
+def main():
+	number = random.randInt(1,1000)
+
+	numbers = [1,2,3,4,5,6,7]
+	random.shuffle(numbers)
+
+	return
+
+if __name__ == "__main__":
+	main()
+
+```
+
 ### autopep8
 
 The autopep8 package will automatically format your Python code to conform to the pep8 styleguide.
@@ -1513,28 +1614,30 @@ You can set autopep8 to be more or less aggressive in its formatting.
 autopep8 --in-place --aggressive --aggressive <filename>
 ```
 
-For example, `-a`or `--aggressive` enables non-whitespace changes; multiple `-a` result in
-more aggressive changes
+For example, `-a`or `--aggressive` enables non-whitespace changes; multiple `-a` result in more aggressive changes
 
 ### The `__name__` Variable
 
 When run, every Python file has a `__name__` variable.
 
-If the file is the main file being run, its value is **main**.
-
-Otherwise, its value is the file name.
+If the file is the main file being run, its value is **main**. Otherwise, its value is the file name, for example if the file is being imported into another file.
 
 When you use `import`, Python:
 
-1. Tries to find the module (if it fails it throws an error).
+1. Tries to find the module (if it fails it throws an error), that is a `.py` file with the same name as `__name__`.
 2. Runs the code inside the module being imported.
 
-You can ignore code on `import`:
+You can tell Python to not run certain lines on import and only run them when the file is run directly as a script by checking if `__name__` is `__main__`:
 
 ```python
+
+def main:
+	# do something
+
 if __name__ == "__main__":
     # this code will only run
-    # if the file is the main file
+    # if the file is the main file being run
+    main()
 ```
 
 ## Making HTTP Requests with Python
@@ -1550,9 +1653,9 @@ This is the Request/Response cycle.
 
 DNS lookup connects domain names and IP addresses through a DNS server.
 
-HTTP headers are sent with both requests and responses. Theyprovide additional information about the request or response.
+HTTP headers are sent with both requests and responses. They provide additional information about the request or response.
 
-- `Accept` - Acceptable content-types for response (for exmple, html, json, xml)
+- `Accept` - Acceptable content-types for response (for example, html, json, xml)
 - `Cache-Control` - Specify caching behaviour
 - `User-Agent` - Contains information about the software used to make the request
 - `Access-Control-Allow-Origin` - Specify domains that can make requests
@@ -1593,7 +1696,7 @@ Often, they can send the data back in different formats, such as json or xml.
 
 ### requests
 
-The requests module lets you make http requests using Python. It's useful for web scraping/crawling and rabbing data from APIs.
+The requests module lets you make http requests using Python. It's useful for web scraping/crawling and grabbing data from APIs.
 
 ### Requesting json
 
@@ -1630,6 +1733,42 @@ response = requests.get(
 
 data = response.json()
 print(data["results"])
+```
+
+### POST Requests
+
+You can make POST requests by providing the url and data in the form of JSON.
+
+```python
+def save_post(data):
+    url = "https://jsonplaceholder.typicode.com/posts"
+    response = requests.post(url, json=data)
+    parsed_data = response.json()
+
+    return parsed_data
+```
+
+### Handling Errors
+
+An API may not raise an error, for example, if a resource doesn't exist. The requests module provides a function, `raisefor_status`, that will manually raise an error if the response's status code indicates an error (4xx, 5xx).
+
+requests also provide error types that can be checked for, such as `requests.exceptions.HTTPError` for status codes in the 400 and 500 range, or `requests.exceptions.RequestException` if the request timed out.
+
+```python
+def get_resource():
+    url = "https://jsonplaceholder.typicode.com/xyz"
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        parsed_data = response.json()
+        return parsed_data
+
+    except requests.exceptions.HTTPError as error:
+        print(f"There was a HTTP error: {error}")
+    except requests.exceptions.RequestException as error:
+        print(f"There was an error: {error}")
+
 ```
 
 ## Object Oriented Programming
@@ -1704,7 +1843,7 @@ Dunder methods, like `__init__`, are built into Python. You generally don't defi
 
 Private methods and attributes, not intended for use outside of a class, are conventionally written with a leading underscore `self._secret`.
 
-When you put double underscores before the name of a method or attribite, Python "mangles" the name of that attribute, making it particular to that class. For example, `self.__msg` becomes `_Person__msg`.
+When you put double underscores before the name of a method or attribute, Python "mangles" the name of that attribute, making it particular to that class. For example, `self.__msg` becomes `_Person__msg`
 
 ### Instance Attributes and Methods
 
@@ -1784,7 +1923,7 @@ You can refer to a class attribute with `Pet.allowed` or `self.allowed`, as long
 
 ### Class Methods
 
-Class methods are methods (with the @classmethod decorator) that are not concerned with instances, but with the class itself (often passed into the class method as `cls`).
+Class methods are methods (with the `@classmethod` decorator) that are not concerned with instances, but with the class itself (often passed into the class method as `cls`).
 
 One use for a class methid is if you need to pass in data in one format and convert it to another before `__init__` is called.
 
@@ -1803,6 +1942,30 @@ class User:
 
 User.display_active_users()
 tom = User.from_string("Tom,Jones,79")
+```
+
+### Static Methods
+
+Static methods are similar to class level methods but are bound to the class itself rather than instances of the class. 
+
+A static method can be called without an object for that class.
+
+Static methods cannot modify the state of an object as they are not bound to it.
+
+Static methods can be denoted using the `@staticmethod` decorator.
+
+Static methods don't need `self` to be passed as the first argument.
+
+```python
+class User:
+	...
+	
+	@staticmethod
+	def validate_email(email):
+		# validation logic
+
+
+User.validate_email("leo@example.com")
 ```
 
 ### String Representation
@@ -1837,6 +2000,7 @@ In Python, inheritance works by passing the parent class as an argument to the d
 
 ```python
 class Animal:
+	...
     def make_sound(self, sound):
         print(sound)
 
@@ -1844,12 +2008,12 @@ class Cat(Animal):
     pass
 
 tivaldo = Cat()
-tivaldo.make_sound("meow") # "meow"
+tivaldo.make_sound("meow") # "meow"	
 ```
 
 ### Properties
 
-Without having private methods or attributes, Python relies on following conventions. Properties let you approximate private methods and attributes.
+Without having private methods or attributes, Python relies on the following conventions. Properties let you approximate private methods and attributes.
 
 ```python
 class Human:
@@ -2156,9 +2320,30 @@ sum(n for n in range(100000000)) # 6.75 seconds
 sum([n for n in range(100000000)]) # 10.47 seconds
 ```
 
-## Decorators
+## Higher Order Functions
+Higher order functions can accept other functions as arguments and return functions. 
 
-Higher order functions can accept other functions as arguments and return functions.
+They can make your code more reusable and modular. A higher order function can be reused without having specific logic tied to it.
+
+There are several higher order functions built into Python, such as `map` and `filter`.
+
+```python
+moves = ["punch", "kick", "block", "dodge"]
+
+def power_move(move):
+	return f"{move.upper()}!!!"
+
+power_moves = map(power_move, moves)
+
+scores = [20, 95, 45, 85, 90, 15, 55, 100, 10]
+
+def is_high_score(score):
+	return score >= 90
+
+high_scores = filter(is_high_score, scores)
+```
+
+## Decorators
 
 Decorators are functions that wrap other functions, changing their behaviour.
 
@@ -2178,6 +2363,11 @@ def greet():
 
 greet() # same as greet = be_polite(greet)
 ```
+
+Real-world use cases for decorators might include:
+- `@require_auth` - check user auth before function conditionally runs
+- `@validate_input` - validate function arguments before function runs
+- `@preprocess` - modify function arguments to be in a specific format
 
 ### Decorator Pattern
 
@@ -2307,6 +2497,27 @@ def repeat_msg(msg, times):
 repeat_msg("hello", "3")
 ```
 
+### Closures
+A closure is a function that remembers values from its enclosing scope even after the enclosing scope has finished execution.
+
+```python
+def move_factory(character_name):
+    uppercase_name = character_name.upper()
+
+    def print_move(move_name):
+        # uppercase_name is available from enclosing scope
+        print(f"{uppercase_name} performs {move_name}")
+    return print_move
+
+def main():
+    ryu_move = move_factory("Ryu")
+    ryu_move("Hadouken")
+
+if __name__ == "__main__":
+    main()
+```
+
+
 ## Testing
 
 Writing tests reduces bugs in existing code, ensures that bugs stay fixed, and ensures that new features don't break old ones, also passing tests is satisfying.
@@ -2325,7 +2536,7 @@ A mantra of TDD is "red, green, refactor".
 
 ### Assertions
 
-You can make simple assertion statements with the `assert` keyword. `assert` accepts an expression. It returns `None` if the expression is truthy and it raises an `AssertionError` if the expression is falsy. `assert` accepts an optional erro message as a second argument.
+You can make simple assertion statements with the `assert` keyword. `assert` accepts an expression. It returns `None` if the expression is truthy and it raises an `AssertionError` if the expression is falsy. `assert` accepts an optional error message as a second argument.
 
 ```python
 def add_positive_numbers(x, y):
@@ -2534,6 +2745,173 @@ with open("haiku.txt", "w") as file:
 - a - Append to the end of a file (previous content is not removed)
 - r+ - Read and write to a file (writes based on cursor - starts at beginning, only works with existing files)
 
+### Working with Paths
+
+You can pass a relative path to `open`. That is relative to where the Python script is being called, not where the script file is located.
+
+```python
+file = open("sample.txt", "r")
+```
+
+Sometimes you will need an absolute path but you don't want to hardcode this or the script won't work on other machines.
+
+The `pathlib` module from the Python standard library lets you construct paths.
+
+You create a new `Path` instance and pass it `__file__` (the full absolute path, including the filename, as a string). 
+
+You can then access properties on this path object, such as `parent` (the absolute path to the file's parent directory).
+
+You can add directories to the path using `/` and make a directory using the `mkdir` method.
+
+`path.write_text()` lets you write text to a file without manually opening it first. `path.read_text()` similarly lets you read a file without manually opening it.
+ 
+```python
+from pathlib import Path
+
+def create_path():
+	script_dir = Path(__file__).parent
+
+	path = script_dir / "characters"
+
+	# create any parent folders, if needed
+	# if directory already exists, don't throw error
+	path.mkdir(parents=True, exist_ok=True)
+
+	path = path / "zelda.txt"
+
+	file = path.open("w") # equivalent to file = open(path, "w") 
+	file.write("Ganon")
+	content = file.read()
+	print(content)
+
+	file.close()
+
+	path.write_text("Epona")
+
+	return
+
+def main():
+	create_path()
+
+if __name__ == "__main__":
+	main()
+```
+
+### Handling File Errors
+
+Working with files can cause errors, for example if you try to read a file that doesn't exist you'll get a `FileNotFoundError`.
+
+For this reason you'll want to wrap file operations with a `try` block. Remember to include a catchall error case.
+
+```python
+from pathlib import Path
+
+def open_file():
+    path = Path(__file__).parent
+    path = path / "does" / "not" / "exist"
+
+    try:
+        file = path.open("r")
+        contents = file.read()
+        print(contents)
+        file.close()
+
+    except FileNotFoundError:
+        print(f"{path} does not exist")
+
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+
+def main():
+    open_file()
+
+if __name__ == "__main__":
+
+    main()
+```
+
+### Context Managers
+
+Context managers are a tool to automatically handle the setup and teardown phases when dealing with external resources. 
+
+For example, they allow you to open a file, work with the file, and then the file will automatically close when the work is done.
+
+The `with` statement creates a runtime context that lets you run a group of statements under the control of a context manager.
+
+```python
+from pathlib import Path
+
+def open_file():
+    path = Path(__file__).parent / "characters.txt"
+    characters = ["Mario", "Luigi", "Peach", "Yoshi", "Bowser"]
+
+    # context manager - auto closes
+    with path.open("w") as file:
+        for character in characters:
+            file.write(character + "\n")
+
+def main():
+    open_file()
+
+if __name__ == "__main__":
+    main()
+```
+
+### Working with JSON
+
+Python supports working with JSON through the built-in `json` module, which lets you convert common data types between Python and JSON.
+
+| Python | JSON   |
+| ------ | ------ |
+| dict   | object |
+| list   | array  |
+| tuple  | array  |
+| str    | string |
+| int    | number |
+| float  | number |
+| True   | true   |
+| False  | false  |
+| None   | null   |
+`json.dump` lets you serialize a Python dictionary into a JSON string.
+
+`json.load` lets you deserialize JSON into Python.
+
+```python
+from pathlib import Path
+import json
+
+path = Path(__file__).parent / "characters.json"
+
+characters = {
+    "characters": [
+        {"name": "Mario", "age": 25},
+        {"name": "Luigi", "age": 22},
+        {"name": "Peach", "age": 26},
+        {"name": "Bowser", "age": 35},
+    ]
+}
+
+def write_json():
+    with path.open("w") as file:
+	    # data to write, target file, indent
+        json.dump(characters, file, indent=2)
+    return
+
+def read_json():
+    with path.open("r") as file:
+        data = json.load(file)
+    return data
+
+def main():
+    write_json()
+    data = read_json()
+    print(data)
+
+if __name__ == "__main__":
+    main()
+```
+
+
 ## Working with CSV
 
 CSV files are a common file format for tabular data. The first row contains the headers, setting up what the data is.
@@ -2564,10 +2942,9 @@ with open "fighters.csv" as file:
         print(row) # each row is an OrderedDict
         print(row["Name"])
 ```
-
 ### Delimiters
 
-Readers accept a delimiter kwarg in case your data isn't seperated by commas.
+Readers accept a delimiter kwarg in case your data isn't separated by commas.
 
 ```python
 from csv import reader
@@ -2604,9 +2981,17 @@ with open("fighters.csv") as file:
             csv_writer.writerow([s.upper() for s in fighter])
 ```
 
+You can also use `writerows` to write a list of values to multiple rows.
+
+```python
+drinks = ["Guinness", "Jameson", "Cavan Cola"]
+
+writer.writerow(["Drink Name"])
+writer.writerows(drinks)
+```
 #### Using Dictionaries
 
-`DictWriter` creates a writer object for writign using dictionaries.
+`DictWriter` creates a writer object for writing using dictionaries.
 
 `fieldnames` - kwarg for the DictWriter specifying headers
 
@@ -2628,7 +3013,7 @@ with open("example.csv", "w") as file:
 
 ### Pickling
 
-`pickle` is a module that serializes data which you can deserialize and access later.
+`pickle` is a module that serializes data, for storing in a file or database, and which you can deserialize and access later.
 
 The data is not human readable while stored.
 
@@ -2682,7 +3067,7 @@ j = json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
 # ["foo", {"bar": ['baz', null, 1.0, 2]}]
 ```
 
-jsonpickle is a library that lets you pickle using JSON, which does take up more space but is readable.
+jsonpickle is a library that lets you pickle using JSON, which does take up more space but is human-readable.
 
 ```python
 import jsonpickle
@@ -3008,7 +3393,7 @@ With SQLite, each value is one of five datatypes.
 
 By default Sqlite conects to a transient in-memory database. To save it to a file, open/create a file with `.open FILENAME` or `sqlite3 FILENAME`.
 
-Sqlite follows the same syntax as other SQL databases.
+SQLite follows the same syntax as other SQL databases.
 
 `CREATE TABLE table_name (column_name datatype);`
 
@@ -3026,7 +3411,7 @@ You can run a SQL file using `.read file_name.sql` inside Sqlite.
 
 ### Connecting to a Database with Python
 
-Python comes with a built-in library to communicate with Sqlite.
+Python comes with a built-in library to communicate with SQLite.
 
 First you create a connection to the database (if the database doesn't exist it'll be created).
 
@@ -3112,7 +3497,7 @@ conn.close()
 
 ### SQL Injection
 
-If you don't sanitize your inputs, a user could write SQl into their input and manipulate the database.
+If you don't sanitize your inputs, a user could write SQL into their input and manipulate the database.
 
 In the example below, if a user entered `' OR 1=1--` the single quote would close the quote, `1=1` would always evaluate to true and `--` would comment out any remaining characters.
 
@@ -3140,4 +3525,96 @@ else:
 
 conn.commit()
 conn.close()
+```
+
+## Match Statements
+Python 3.10 added structural pattern matching using match statements.
+
+This lets you:
+- extract information from complex data types
+- have conditional branching based on the structure of the data
+- apply specific actions based on different forms of data
+
+A match statement takes an expression and compares its value to patterns in one or more case blocks. Each pattern is checked from top to bottom. 
+
+You can optionally include a wildcard case (commonly `_`) as the last case. If there is no exact match, the wildcard will be used as the matching case. If there is no match and no wildcard there will be a no-op and nothing will happen.
+
+You can combine patterns using `|` ("or").
+
+```python
+def http_error(status):
+	match status:
+		case 400:
+			return "Bad request"
+		case 401 | 403:
+			return "Not allowed"
+		case 404:
+			return "Not found"
+		case 418:
+			return "I'm a teapot"
+		case _:
+			return "Something's wrong with the internet"
+```
+
+### Patterns with literals and variables
+Patterns can match a literal value or extract and bind a variable
+
+```python
+# point is an (x,y) tuple
+match point:
+	case (0,0):
+		print("Origin")
+	case (0,y):
+		print(f"Y={y}")
+	case (x,0):
+		print(f"X={x}")
+	case (x,y):
+		print(f"X={x}, Y={y}")
+	case other:
+		raise ValueError("Not a point)
+```
+
+### Patterns and classes
+You can match a class by using the class name and constructor argument list as a pattern. This pattern lets you capture class attributes as variables.
+
+```python
+class Point:
+	x: int
+	y: int
+
+def location(point):
+	match point:
+		case Point(x=0, y=0):
+			print("Origin is the point's location")
+		case Point(x=0, y=y):
+			print(f"Y={y} and the point is on the y-axis")
+		case Point(x=x, y=0):
+			print(f"X={x} and the point is on the x-axis")
+		case Point():
+			print("The point is located somewhere else on the plane")
+		case _:
+			print("Not a point")
+
+```
+
+### Complex patterns and wildcards
+A wildcard can be used in more complex patterns where you don't care what one or more of the values is.
+
+```python
+match test_variable:
+	case ("warning", code, 40):
+		print("A warning was received")
+	case ("error", code, _):
+		print(f"An error with code [{code}] occurred")
+```
+
+### Pattern guards
+You can add an "if" clause to a pattern as a guard. If the guard is false, the match goes on to the next case block. Value capturing happens before the guard is evaluated.
+
+```python
+match point:
+	case Point(x, y) if x == y:
+		print(f"The point is located on the diagonal Y=X at {x}")
+	case Point(x, y):
+		print("Point is not on the diagonal")
 ```
